@@ -55,6 +55,7 @@ export type DesignFrameworkOutput = z.infer<typeof DesignFrameworkOutputSchema>;
 export const WebTaskInputSchema = z.object({
   url: z.string().url().describe('The URL of the webpage to analyze.'),
   task: z. string().describe('The task to perform on the webpage.'),
+  userData: z.string().optional().describe('Optional user data or context that might contain sensitive information.'),
 });
 export type WebTaskInput = z.infer<typeof WebTaskInputSchema>;
 

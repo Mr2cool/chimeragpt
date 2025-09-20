@@ -26,6 +26,7 @@ export function WebAgent() {
     defaultValues: {
       url: 'https://en.wikipedia.org/wiki/React_(software)',
       task: 'Resume la historia de este framework.',
+      userData: `My name is John Doe, I live at 123 Main St, and I am a software engineer. My manager asked me to research the history of React for a presentation. I need a summary of its key milestones.`
     },
   });
 
@@ -49,10 +50,10 @@ export function WebAgent() {
         <CardHeader>
           <CardTitle className="font-headline text-2xl flex items-center gap-2">
             <Globe className="w-6 h-6 text-primary" />
-            Multilingual Web Agent
+            Privacy-Aware Web Agent
           </CardTitle>
           <CardDescription>
-            Provide a URL and a task in any language. The agent will visit the webpage, analyze its content (including images), and use web search if needed to complete your request. It can even translate your task to understand it better.
+            Provide a URL, a task, and some context. The agent will analyze the webpage, but it will first use a privacy filter to extract only the necessary information from your data to perform the task, preventing leaks of sensitive info.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -87,11 +88,31 @@ export function WebAgent() {
                       <Textarea
                         placeholder="e.g., Summarize the main points of the article."
                         {...field}
-                        rows={4}
+                        rows={2}
                       />
                     </FormControl>
                     <FormDescription>
                       Clearly describe what you want the agent to do on the page.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="userData"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Your Data / Context</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="e.g., Provide any context the agent might need. The agent will only use what is necessary."
+                        {...field}
+                        rows={4}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      Provide any background information or data the agent might need. It will be filtered for privacy.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>

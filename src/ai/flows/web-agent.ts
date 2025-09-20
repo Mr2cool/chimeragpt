@@ -42,7 +42,7 @@ const imageAnalysisTool = ai.defineTool(
             const dataUri = await fetchImageAsDataUri(input.imageUrl);
             if (!dataUri) return "Failed to fetch image.";
 
-            const { output } = await ai.generate({
+            const { text } = await ai.generate({
                 model: 'googleai/gemini-pro-vision',
                 prompt: [{
                     media: { url: dataUri }
@@ -51,7 +51,7 @@ const imageAnalysisTool = ai.defineTool(
                 }],
             });
             
-            return output || "Could not analyze image.";
+            return text || "Could not analyze image.";
 
         } catch (e) {
             console.error("Image analysis tool failed", e);
@@ -69,10 +69,39 @@ const selfTranslateTool = ai.defineTool(
         outputSchema: z.string().describe('The translated English text.'),
     },
     async(input) => {
-        const { output } = await ai.generate({
+        const { text } = await ai.generate({
             prompt: `Translate the following text to English: "${input.text}"`,
         });
-        return output || "Translation failed.";
+        return text || "Translation failed.";
+    }
+);
+
+// Tool to extract only relevant information based on a task (for data minimization)
+const extractRelevantInfoTool = ai.defineTool(
+    {
+        name: 'extractRelevantInfo',
+        description: 'Analyzes a full text and extracts only the snippets of information that are strictly necessary to perform a given task. This should be the first step to ensure data minimization and privacy.',
+        inputSchema: z.object({
+            fullText: z.string().describe('The full text data which may contain sensitive or irrelevant information.'),
+            task: z.string().describe('The specific task that needs to be performed.'),
+        }),
+        outputSchema: z.string().describe('A summarized string containing only the information relevant to the task.'),
+    },
+    async (input) => {
+        const { text } = await ai.generate({
+            prompt: `You are a privacy-focused assistant. Analyze the following text and extract ONLY the information that is absolutely necessary to perform the given task. Do not include any personal details, background information, or other data that is not directly required.
+
+**Task:**
+${input.task}
+
+**Full Text:**
+---
+${input.fullText}
+---
+
+**Extracted Relevant Information:**`
+        });
+        return text || "No relevant information could be extracted.";
     }
 );
 
@@ -102,16 +131,20 @@ export async function performWebTask(input: WebTaskInput): Promise<WebTaskOutput
             const prompt = ai.definePrompt({
                 name: 'webTaskPrompt',
                 output: { schema: WebTaskOutputSchema },
-                tools: [webSearchTool, imageAnalysisTool, selfTranslateTool],
-                prompt: `You are an advanced multimodal web agent. Your task is to analyze the content of a webpage and perform a user-defined task.
+                tools: [webSearchTool, imageAnalysisTool, selfTranslateTool, extractRelevantInfoTool],
+                prompt: `You are an advanced, privacy-aware web agent. Your primary goal is to follow the principle of data minimization.
 
 You have access to tools that can help you:
-1. 'selfTranslate': If the user's task is in a language other than English, you MUST use this tool first to translate the task to English before proceeding.
-2. 'webSearch': If the provided webpage content is not enough to answer the user's request, use this tool to search the web for additional information.
-3. 'analyzeImage': If the page contains images relevant to the task, use this tool to "see" and understand their content.
+1. 'selfTranslate': If the user's task is in a language other than English, you MUST use this tool first to translate the task to English.
+2. 'extractRelevantInfo': BEFORE you do anything else, you MUST use this tool to extract only the necessary information from the user's full context to perform the task. This is a critical privacy step.
+3. 'webSearch': If the provided webpage content and the extracted relevant information are not enough, use this tool to search the web.
+4. 'analyzeImage': If the page contains images relevant to the task, use this tool to "see" and understand their content.
 
 **User's Task:**
 {{{task}}}
+
+**User's Full Context/Data:**
+{{{userData}}}
 
 **Webpage URL:**
 {{{url}}}
@@ -128,17 +161,19 @@ You have access to tools that can help you:
 {{/each}}
 {{/if}}
 
-First, check the language of the user's task. If it's not in English, use the 'selfTranslate' tool.
-Next, analyze the content of the page. If it is sufficient, perform the task.
-If the content is not sufficient, use the 'webSearch' tool to gather more information.
-If there are relevant images, use the 'analyzeImage' tool to understand them.
-Finally, perform the task and provide the result in a clear, well-structured markdown format. When using tools, briefly mention that you are doing so.
+Follow these steps strictly:
+1.  Check the language of the user's task. If it's not in English, use 'selfTranslate' to translate it.
+2.  Use the 'extractRelevantInfo' tool on the 'User's Full Context/Data' to get only the necessary information for the task.
+3.  Analyze the 'Webpage Content'.
+4.  If the extracted info and webpage content are not sufficient, use 'webSearch' or 'analyzeImage' to gather more information.
+5.  Finally, perform the task and provide the result in a clear, well-structured markdown format. When using tools, briefly mention that you are doing so.
 `,
             });
 
             const { output } = await prompt({
                 url: input.url,
                 task: input.task,
+                userData: input.userData,
                 pageContent: sanitizedContent,
                 imageUrls: imageUrls
             });
