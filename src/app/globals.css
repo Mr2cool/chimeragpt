@@ -89,7 +89,7 @@
       @apply font-headline text-foreground mt-8 mb-4 font-semibold;
   }
   .prose h1 { @apply text-4xl font-bold; }
-  .prose h2 { @apply text-3xl; border-b pb-2; }
+  .prose h2 { @apply text-3xl border-b pb-2; }
   .prose h3 { @apply text-2xl; }
   .prose a {
       @apply text-primary hover:underline;
