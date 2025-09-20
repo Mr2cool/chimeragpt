@@ -19,7 +19,7 @@ import { FrameworkDesigner } from './framework-designer';
 import { WebAgent } from './web-agent';
 import { VideoGenerator } from './video-generator';
 import { AppIdeation } from './app-ideation';
-import { Star, GitFork, Video, Bot } from 'lucide-react';
+import { Star, GitFork, Video, Waypoints, MessageSquare, BookImage, Telescope } from 'lucide-react';
 import { Button } from './ui/button';
 import { GithubIcon, Logo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -45,7 +45,7 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                 <div className="flex items-center gap-2 p-3.5">
                     <Logo className="text-primary" />
                     <span className="font-headline text-lg font-semibold group-data-[collapsible=icon]:hidden">
-                        Nano GitHub Viewer
+                        Chimera Framework
                     </span>
                 </div>
                 <SidebarSeparator />
@@ -99,10 +99,22 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                             <TabsTrigger value="readme" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">README</TabsTrigger>
                             <TabsTrigger value="review" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Review</TabsTrigger>
                             <TabsTrigger value="ideation" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Ideation</TabsTrigger>
-                            <TabsTrigger value="designer" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Designer</TabsTrigger>
-                            <TabsTrigger value="conversation" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Conversation</TabsTrigger>
-                            <TabsTrigger value="story" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Story</TabsTrigger>
-                            <TabsTrigger value="web-agent" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Web Agent</TabsTrigger>
+                            <TabsTrigger value="designer" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
+                                <Waypoints className="w-4 h-4 mr-2"/>
+                                Architect
+                            </TabsTrigger>
+                            <TabsTrigger value="conversation" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
+                                 <MessageSquare className="w-4 h-4 mr-2"/>
+                                 Conversation
+                            </TabsTrigger>
+                            <TabsTrigger value="story" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
+                                <BookImage className="w-4 h-4 mr-2"/>
+                                Story
+                            </TabsTrigger>
+                            <TabsTrigger value="web-agent" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
+                                <Telescope className="w-4 h-4 mr-2"/>
+                                Web Agent
+                            </TabsTrigger>
                              <TabsTrigger value="video" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
                                 <Video className="w-4 h-4 mr-2"/>
                                 Video

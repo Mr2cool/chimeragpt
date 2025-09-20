@@ -13,7 +13,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Skeleton } from './ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, Waypoints } from 'lucide-react';
 
 export function FrameworkDesigner() {
   const [result, setResult] = React.useState<string | null>(null);
@@ -45,9 +45,12 @@ export function FrameworkDesigner() {
     <div className="p-4 md:p-6 lg:p-8 space-y-8">
       <Card>
         <CardHeader>
-          <CardTitle className="font-headline text-2xl">Multi-Agent Framework Designer</CardTitle>
+          <CardTitle className="font-headline text-2xl flex items-center gap-2">
+            <Waypoints className="w-6 h-6 text-primary" />
+            Multi-Agent Framework Architect
+          </CardTitle>
           <CardDescription>
-            Describe the goal of your multi-agent system, and our AI will propose a conceptual architecture for a new framework to achieve it.
+            Describe the goal of your multi-agent system, and our AI architect will design a conceptual architecture for a new, unified framework to achieve it, drawing inspiration from modern protocols and systems.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -74,7 +77,7 @@ export function FrameworkDesigner() {
                 )}
               />
               <Button type="submit" disabled={isLoading}>
-                {isLoading ? 'Designing...' : 'Design Architecture'}
+                {isLoading ? 'Designing Architecture...' : 'Design Architecture'}
               </Button>
             </form>
           </FormProvider>
@@ -86,17 +89,20 @@ export function FrameworkDesigner() {
             <CardHeader>
                 <CardTitle className="font-headline text-2xl">Generated Architecture</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-                <Skeleton className="h-6 w-1/4" />
-                <div className="space-y-2">
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-3/4" />
-                </div>
+            <CardContent className="space-y-6 prose dark:prose-invert max-w-none">
+                <Skeleton className="h-8 w-1/2" />
+                <Skeleton className="h-4 w-3/4" />
+                <Skeleton className="h-4 w-full" />
                 <Skeleton className="h-6 w-1/3 mt-4" />
-                 <div className="space-y-2">
+                <div className="space-y-2">
+                    <Skeleton className="h-5 w-1/4 font-bold" />
                     <Skeleton className="h-4 w-full" />
                     <Skeleton className="h-4 w-5/6" />
+                </div>
+                 <div className="space-y-2">
+                    <Skeleton className="h-5 w-1/4 font-bold" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-full" />
                 </div>
             </CardContent>
         </Card>
@@ -116,7 +122,7 @@ export function FrameworkDesigner() {
             <CardTitle className="font-headline text-2xl">Generated Architecture</CardTitle>
           </CardHeader>
           <CardContent>
-            <article className="prose dark:prose-invert">
+            <article className="prose dark:prose-invert max-w-none">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{result}</ReactMarkdown>
             </article>
           </CardContent>

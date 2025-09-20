@@ -37,7 +37,7 @@ export type RepoAnalysisOutput = z.infer<typeof RepoAnalysisOutputSchema>;
 
 // Schema for src/ai/flows/framework-design.ts
 export const DesignFrameworkInputSchema = z.object({
-  goal: z.string().describe('The high-level goal of the multi-agent system.'),
+  goal: z.string().min(10, { message: "Goal must be at least 10 characters."}).describe('The high-level goal of the multi-agent system.'),
 });
 export type DesignFrameworkInput = z.infer<typeof DesignFrameworkInputSchema>;
 
