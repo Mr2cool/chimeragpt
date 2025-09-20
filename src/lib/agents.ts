@@ -41,7 +41,7 @@ export class AIAgent {
   public name: string;
   public role: string;
   public actions: BaseAction[];
-  private memory: Memory;
+  protected memory: Memory;
 
   constructor(name: string, role: string, actions: BaseAction[] = []) {
     this.name = name;
@@ -50,88 +50,121 @@ export class AIAgent {
     this.memory = new Memory();
   }
 
-  async run(task: string): Promise<string> {
+  protected getPrompt(task: string) {
     const actionDescriptions = this.actions
-      .map(action => `- ${action.name}: ${action.description}`)
+      .map(action => `- ${action.name}: ${action.description} (Input: ${action.inputSchema.description || 'string'})`)
       .join('\n');
 
-    const prompt = ai.definePrompt({
-        name: `${this.name.toLowerCase().replace(' ', '-')}-prompt`,
+    return ai.definePrompt({
+        name: `${this.name.toLowerCase().replace(/\s+/g, '-')}-prompt`,
         model: googleAI.model('gemini-1.5-flash-latest'),
         prompt: `You are ${this.name}, a specialized AI agent with the role: "${this.role}".
-Your task is: "${task}".
+Your overall task is: "${task}".
 
 You have access to the following tools:
 ${actionDescriptions}
-- Finish: Use this action when you have completed the task and have a final answer.
+- Finish: Use this action when you have completed the task and have a final answer. Input should be your final answer.
 
-Conversation History:
+Conversation History & Observations:
 ---
 ${this.memory.getHistory()}
 ---
 
-Based on the task and history, decide which action to take next.
-Respond with the name of the action and the input for it in a single line, like this: "ActionName: input value".`,
+Based on the task and history, decide which action to take next to make progress.
+Respond with only the name of the action and the input for it in a single line, like this: "ActionName: input value".
+If you have completed the task, use the "Finish" action.`,
     });
+  }
 
-    const { text } = await prompt();
-    if (!text) {
-      throw new Error("Agent failed to generate a response.");
-    }
-    const [actionName, ...inputParts] = text.split(':');
-    const input = inputParts.join(':').trim();
-
-    this.memory.add(`Agent Thought: I will use the ${actionName} tool.`);
-
-    if (actionName.toLowerCase() === 'finish') {
-      this.memory.add(`Observation: Task finished. Final Answer: ${input}`);
-      return input; // Task is complete
-    }
-
-    const action = this.actions.find(a => a.name === actionName);
-    if (!action) {
-      const error = `Error: Action "${actionName}" not found.`;
-      this.memory.add(`Observation: ${error}`);
-      return error;
-    }
-    
-    try {
-        const parsedInput = await action.inputSchema.parseAsync(input);
-        const output = await action.execute(parsedInput);
-        const observation = `Observation: ${JSON.stringify(output)}`;
-        this.memory.add(observation);
-        // This is a simplified loop for one step. A real implementation would loop until "Finish".
-        return `Action Used: ${actionName}. Observation: ${JSON.stringify(output)}.`;
-    } catch (e) {
-        const error = `Error executing action ${actionName}: ${e instanceof Error ? e.message : 'Unknown error'}`;
-        this.memory.add(`Observation: ${error}`);
-        return error;
-    }
+  async run(task: string): Promise<string> {
+     throw new Error("The 'run' method must be implemented by a subclass. Use AutonomousAgent for multi-step tasks.");
   }
 }
+
+/**
+ * An autonomous agent that can perform multiple steps to complete a task.
+ * It uses a loop to think, act, and observe until it decides to finish.
+ */
+export class AutonomousAgent extends AIAgent {
+    private maxSteps: number;
+
+    constructor(name: string, role: string, actions: BaseAction[] = [], maxSteps: number = 10) {
+        super(name, role, actions);
+        this.maxSteps = maxSteps;
+    }
+
+    async run(task: string): Promise<string> {
+        this.memory.add(`Task started: ${task}`);
+        const agentPrompt = this.getPrompt(task);
+        
+        for (let i = 0; i < this.maxSteps; i++) {
+            const { text } = await agentPrompt();
+            if (!text) {
+                const error = "Agent failed to generate a response.";
+                this.memory.add(`Observation: ${error}`);
+                return error;
+            }
+
+            const [actionName, ...inputParts] = text.split(':');
+            const input = inputParts.join(':').trim();
+
+            this.memory.add(`Thought: I will use the ${actionName} tool. Input: "${input}"`);
+
+            if (actionName.toLowerCase() === 'finish') {
+                this.memory.add(`Observation: Task finished. Final Answer: ${input}`);
+                return input; // Task is complete
+            }
+
+            const action = this.actions.find(a => a.name === actionName);
+            if (!action) {
+                const error = `Error: Action "${actionName}" not found. Available actions: ${this.actions.map(a => a.name).join(', ')}, Finish.`;
+                this.memory.add(`Observation: ${error}`);
+                continue; // Allow the agent to try again
+            }
+            
+            try {
+                // We don't validate schema here as the LLM output is freeform.
+                const output = await action.execute(input);
+                const observation = `Observation: ${JSON.stringify(output)}`;
+                this.memory.add(observation);
+            } catch (e) {
+                const error = `Error executing action ${actionName}: ${e instanceof Error ? e.message : 'Unknown error'}`;
+                this.memory.add(`Observation: ${error}`);
+            }
+        }
+        const finalMessage = `Task failed to complete within ${this.maxSteps} steps.`;
+        this.memory.add(finalMessage);
+        return finalMessage;
+    }
+}
+
 
 /**
  * A manager agent that can orchestrate a team of other agents.
  * It decomposes a task and delegates sub-tasks to its team members.
  */
-export class ManagerAgent extends AIAgent {
+export class ManagerAgent extends AutonomousAgent {
     public team: AIAgent[];
 
-    constructor(name: string, role: string, team: AIAgent[]) {
+    constructor(name: string, role: string, team: AIAIAgent[], maxSteps: number = 10) {
         // The manager's "actions" are its team members.
         const teamAsActions = team.map(agent => new (class extends BaseAction {
             name = agent.name;
             description = `Delegate a sub-task to this agent. Role: ${agent.role}`;
-            inputSchema = z.string();
+            inputSchema = z.string().describe('The specific and actionable sub-task for the agent.');
             outputSchema = z.string();
             async execute(subTask: string): Promise<string> {
-                return agent.run(subTask);
+                // Ensure team members are autonomous to handle multi-step sub-tasks
+                if (agent instanceof AutonomousAgent) {
+                    return agent.run(subTask);
+                }
+                // Fallback for simple agents, though Autonomous is preferred for delegation.
+                const simpleAgent = new AutonomousAgent(agent.name, agent.role, agent.actions, 5);
+                return simpleAgent.run(subTask);
             }
         })());
 
-        super(name, role, teamAsActions);
+        super(name, role, teamAsActions, maxSteps);
         this.team = team;
     }
-
-    // The manager's run method is inherited from AIAgent, but it uses its team members as its tools.
 }
