@@ -36,8 +36,8 @@ const webSearchTool = ai.defineTool(
 const imageAnalysisTool = ai.defineTool(
     {
         name: 'analyzeImage',
-        description: 'Analyzes an image from a given URL to describe its content. Use this to understand images found on the webpage.',
-        inputSchema: z.object({ imageUrl: z.string().url().describe('The URL of the image to analyze.') }),
+        description: 'Analyzes a single image from a given URL to describe its content. Use this to understand images found on the webpage, one by one.',
+        inputSchema: z.object({ imageUrl: z.string().url().describe('The URL of the single image to analyze.') }),
         outputSchema: z.string().describe('A text description of the image content.'),
     },
     async (input) => {
@@ -94,7 +94,7 @@ export async function performWebTask(input: WebTaskInput): Promise<WebTaskOutput
 
 You have access to tools that can help you:
 - 'webSearch': If the provided webpage content is not enough, use this to search the web.
-- 'analyzeImage': If the page contains images relevant to the task, use this to "see" and understand their content.
+- 'analyzeImage': If the page contains images relevant to the task, use this to "see" and understand their content. This tool analyzes one image URL at a time.
 
 **User's Task:**
 {{{task}}}
@@ -109,10 +109,12 @@ You have access to tools that can help you:
 
 {{#if imageUrls}}
 **Images found on page (up to 3):**
-{{{imageUrls}}}
+{{#each imageUrls}}
+- {{{this}}}
+{{/each}}
 {{/if}}
 
-Analyze the 'Webpage Content'. If it's not sufficient, use 'webSearch' or 'analyzeImage' to gather more information.
+Analyze the 'Webpage Content'. If it's not sufficient, use 'webSearch' to gather more information. If you need to understand an image, use the 'analyzeImage' tool with one of the URLs listed above.
 Finally, perform the task and provide the result in a clear, well-structured markdown format.
 When using tools, briefly mention that you are doing so.
 If you need to perform multiple steps, think step-by-step and use the tools iteratively.
@@ -123,7 +125,7 @@ If you need to perform multiple steps, think step-by-step and use the tools iter
                 url: input.url,
                 task: input.task,
                 pageContent: sanitizedContent,
-                imageUrls: imageUrls.map(url => `- ${url}`).join('\n')
+                imageUrls: imageUrls
             });
             return output!;
         }
