@@ -111,3 +111,31 @@ export const ConversationOutputSchema = z.object({
   })).describe('The structured conversation between the two agents.'),
 });
 export type ConversationOutput = z.infer<typeof ConversationOutputSchema>;
+
+
+// Schema for src/ai/flows/app-ideation.ts
+export const AppIdeationInputSchema = z.object({
+  repoName: z.string().describe('The name of the source repository.'),
+  repoDescription: z.string().describe('The description of the source repository.'),
+  filePaths: z.array(z.string()).describe('The file paths from the source repository.'),
+  numIdeas: z.number().min(1).max(5).describe('The number of new application ideas to generate.'),
+});
+export type AppIdeationInput = z.infer<typeof AppIdeationInputSchema>;
+
+export const AppIdeationOutputSchema = z.object({
+  ideas: z.array(
+    z.object({
+      name: z.string().describe('A creative and fitting name for the new application.'),
+      description: z.string().describe('A one-paragraph description of what the new application does.'),
+      techStack: z.array(z.string()).describe('A list of recommended technologies (languages, frameworks, libraries).'),
+      agents: z.array(
+        z.object({
+          name: z.string().describe('The name of the AI agent (e.g., "CodeGeneratorAgent").'),
+          description: z.string().describe('A brief description of the agent\'s role and responsibilities.'),
+        })
+      ).describe('A list of AI agents required for the application.'),
+      todoList: z.array(z.string()).describe('A high-level TODO list of tasks to build the application.'),
+    })
+  ).describe('A list of generated application ideas.'),
+});
+export type AppIdeationOutput = z.infer<typeof AppIdeationOutputSchema>;

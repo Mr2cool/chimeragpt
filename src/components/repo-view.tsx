@@ -20,8 +20,9 @@ import { WebAgent } from './web-agent';
 import { VideoGenerator } from './video-generator';
 import { StoryCreator } from './story-creator';
 import { ConversationStarter } from './conversation-starter';
+import { AppIdeation } from './app-ideation';
 import { DependencyList } from './dependency-list';
-import { Star, GitFork, Video, Bot, MessageSquare } from 'lucide-react';
+import { Star, GitFork, Video, Bot, MessageSquare, WandSparkles } from 'lucide-react';
 import { Button } from './ui/button';
 import { GithubIcon, Logo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -97,6 +98,10 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                         <TabsList className="p-0 m-4 bg-transparent gap-4">
                             <TabsTrigger value="readme" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">README</TabsTrigger>
                             <TabsTrigger value="analysis" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Analysis</TabsTrigger>
+                            <TabsTrigger value="ideation" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
+                                <WandSparkles className="w-4 h-4 mr-2"/>
+                                Ideation
+                            </TabsTrigger>
                             <TabsTrigger value="designer" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Designer</TabsTrigger>
                             <TabsTrigger value="web-agent" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Web Agent</TabsTrigger>
                              <TabsTrigger value="conversations" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
@@ -122,6 +127,9 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                     </TabsContent>
                     <TabsContent value="analysis" className="mt-0">
                         <RepoAnalysis filePaths={filePaths} repoDescription={repo.description || ''} />
+                    </TabsContent>
+                    <TabsContent value="ideation" className="mt-0">
+                        <AppIdeation repo={{name: repo.name, description: repo.description || '', filePaths}} />
                     </TabsContent>
                     <TabsContent value="designer" className="mt-0">
                         <FrameworkDesigner />
