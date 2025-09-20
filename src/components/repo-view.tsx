@@ -110,17 +110,17 @@ export async function RepoView({ repo, rawTree, readme, packageJson }: RepoViewP
               <TabsContent value="design" className="flex-1 overflow-y-auto">
                 <FrameworkDesigner />
               </TabsContent>
-              <TabsContent value="web" className="flex-1 overflow-y-auto">
-                <WebAgent />
-              </TabsContent>
-              <TabsContent value="video" className="flex-1 overflow-y-auto">
-                <VideoGenerator />
-              </TabsContent>
               <TabsContent value="story" className="flex-1 overflow-y-auto">
                 <StoryCreator />
               </TabsContent>
               <TabsContent value="conversation" className="flex-1 overflow-y-auto">
                 <ConversationStarter />
+              </TabsContent>
+              <TabsContent value="web" className="flex-1 overflow-y-auto">
+                <WebAgent />
+              </TabsContent>
+              <TabsContent value="video" className="flex-1 overflow-y-auto">
+                <VideoGenerator />
               </TabsContent>
             </Tabs>
           </main>

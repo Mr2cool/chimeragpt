@@ -117,6 +117,19 @@ export const ReadmeQnaOutputSchema = z.object({
 export type ReadmeQnaOutput = z.infer<typeof ReadmeQnaOutputSchema>;
 
 
+// Schema for src/ai/flows/story-creator.ts
+export const StoryCreatorInputSchema = z.object({
+  prompt: z.string().min(10, "Prompt must be at least 10 characters long.").describe("The user's prompt for the story."),
+});
+export type StoryCreatorInput = z.infer<typeof StoryCreatorInputSchema>;
+
+export const StoryCreatorOutputSchema = z.object({
+  story: z.string().describe("The generated short story."),
+  imageUrl: z.string().url().describe("The URL of the generated cover image."),
+});
+export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
+
+
 // Schema for src/ai/flows/conversation-flow.ts
 export const ConversationInputSchema = z.object({
   topic: z.string().min(5, "Topic must be at least 5 characters.").describe("The topic for the AI agents to discuss."),
@@ -133,16 +146,3 @@ export const ConversationOutputSchema = z.object({
   ).describe("The full conversation history between the two agents."),
 });
 export type ConversationOutput = z.infer<typeof ConversationOutputSchema>;
-
-
-// Schema for src/ai/flows/story-creator.ts
-export const StoryCreatorInputSchema = z.object({
-  prompt: z.string().min(10, "Prompt must be at least 10 characters long.").describe("The user's prompt for the story."),
-});
-export type StoryCreatorInput = z.infer<typeof StoryCreatorInputSchema>;
-
-export const StoryCreatorOutputSchema = z.object({
-  story: z.string().describe("The generated short story."),
-  imageUrl: z.string().url().describe("The URL of the generated cover image."),
-});
-export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
