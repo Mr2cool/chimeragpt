@@ -11,14 +11,18 @@ import {ai} from '@/ai/genkit';
 import { EnhanceReadmeInputSchema, EnhanceReadmeOutputSchema, type EnhanceReadmeInput, type EnhanceReadmeOutput } from '@/lib/schema';
 
 export async function enhanceReadme(input: EnhanceReadmeInput): Promise<EnhanceReadmeOutput> {
-  return enhanceReadmeFlow(input);
-}
-
-const prompt = ai.definePrompt({
-  name: 'readmeEnhancementPrompt',
-  input: {schema: EnhanceReadmeInputSchema},
-  output: {schema: EnhanceReadmeOutputSchema},
-  prompt: `You are an AI assistant that enhances README files for GitHub repositories.
+  const enhanceReadmeFlow = ai.defineFlow(
+    {
+      name: 'enhanceReadmeFlow',
+      inputSchema: EnhanceReadmeInputSchema,
+      outputSchema: EnhanceReadmeOutputSchema,
+    },
+    async input => {
+      const prompt = ai.definePrompt({
+        name: 'readmeEnhancementPrompt',
+        input: {schema: EnhanceReadmeInputSchema},
+        output: {schema: EnhanceReadmeOutputSchema},
+        prompt: `You are an AI assistant that enhances README files for GitHub repositories.
 
   You will receive the repository description and the README content.
   Your task is to analyze the README file and generate a short, friendly introduction based on the repository's metadata (description) to provide context before displaying the README content.
@@ -29,18 +33,12 @@ const prompt = ai.definePrompt({
   README Content: {{{readmeContent}}}
 
   Enhanced README Content:`,  
-});
-
-const enhanceReadmeFlow = ai.defineFlow(
-  {
-    name: 'enhanceReadmeFlow',
-    inputSchema: EnhanceReadmeInputSchema,
-    outputSchema: EnhanceReadmeOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
-    return {
-      enhancedReadme: output!.enhancedReadme,
-    };
-  }
-);
+      });
+      const {output} = await prompt(input);
+      return {
+        enhancedReadme: output!.enhancedReadme,
+      };
+    }
+  );
+  return enhanceReadmeFlow(input);
+}
