@@ -60,6 +60,28 @@ const imageAnalysisTool = ai.defineTool(
     }
 );
 
+// Tool to summarize and compress long text content
+const summarizeAndCompressTool = ai.defineTool(
+    {
+        name: 'summarizeAndCompress',
+        description: 'Summarizes and compresses long text content to extract the most important information. Use this when the webpage content is very long.',
+        inputSchema: z.object({ content: z.string().describe('The long text content to compress.') }),
+        outputSchema: z.string().describe('A compressed summary of the content.'),
+    },
+    async (input) => {
+        try {
+             const { output } = await ai.generate({
+                model: 'googleai/gemini-2.5-flash',
+                prompt: `Summarize the following text, focusing on the key arguments, findings, and conclusions. The summary should be dense and capture the essential information. Text: ${input.content.substring(0, 100000)}`,
+            });
+            return output?.text() || "Could not summarize content.";
+        } catch (e) {
+            console.error("Summarization tool failed", e);
+            return "Summarization failed.";
+        }
+    }
+);
+
 export async function performWebTask(input: WebTaskInput): Promise<WebTaskOutput> {
     const webTaskFlow = ai.defineFlow(
         {
@@ -74,25 +96,24 @@ export async function performWebTask(input: WebTaskInput): Promise<WebTaskOutput
                 throw new Error("Failed to fetch content from the provided URL.");
             }
 
-            // Sanitize content and extract image URLs
             const sanitizedContent = pageContent
                 .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
                 .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
                 .replace(/<[^>]+>/g, ' ')
-                .replace(/\s\s+/g, ' ')
-                .substring(0, 15000); // Limit content length
+                .replace(/\s\s+/g, ' ');
 
-            const imageUrls = extractImageUrls(pageContent, input.url).slice(0, 3); // Limit to 3 images
+            const imageUrls = extractImageUrls(pageContent, input.url).slice(0, 3);
 
             const prompt = ai.definePrompt({
                 name: 'webTaskPrompt',
                 output: { schema: WebTaskOutputSchema },
-                tools: [webSearchTool, imageAnalysisTool],
+                tools: [webSearchTool, imageAnalysisTool, summarizeAndCompressTool],
                 prompt: `You are an advanced multimodal web agent. Your task is to analyze the content of a webpage and perform a user-defined task.
 
 You have access to tools that can help you:
-1. 'webSearch': If the content of the page is not enough to answer the user's request, use this tool to search the web for additional information.
-2. 'analyzeImage': If the page contains images, use this tool to "see" and understand their content.
+1. 'summarizeAndCompress': If the webpage content is very long (more than ~3000 words), use this tool first to get a compressed summary.
+2. 'webSearch': If the compressed content is still not enough to answer the user's request, use this tool to search the web for additional information.
+3. 'analyzeImage': If the page contains images relevant to the task, use this tool to "see" and understand their content.
 
 **User's Task:**
 {{{task}}}
@@ -100,7 +121,7 @@ You have access to tools that can help you:
 **Webpage URL:**
 {{{url}}}
 
-**Webpage Content (sanitized text):**
+**Webpage Content (sanitized text, may be very long):**
 ---
 {{{pageContent}}}
 ---
@@ -112,7 +133,10 @@ You have access to tools that can help you:
 {{/each}}
 {{/if}}
 
-Based on the content and using your tools if necessary, perform the task and provide the result in a clear, well-structured markdown format. When using tools, briefly mention that you are doing so.
+Follow these steps:
+1. Assess the length of the content. If it's long, use 'summarizeAndCompress'.
+2. Based on the (potentially compressed) content and the user's task, decide if you need to use 'webSearch' or 'analyzeImage'.
+3. Perform the task and provide the result in a clear, well-structured markdown format. When using tools, briefly mention that you are doing so.
 `,
             });
 
