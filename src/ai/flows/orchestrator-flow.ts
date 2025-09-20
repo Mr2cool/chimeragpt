@@ -1,6 +1,6 @@
 'use server';
 /**
- * @fileOverview The master orchestrator agent that delegates tasks to specialized agents.
+ * @fileOverview The prime agent that delegates tasks to a network of specialized agents.
  *
  * - runOrchestrator - A function that takes a high-level goal and uses a suite of tools
  *   (representing other agents) to accomplish it.
@@ -17,19 +17,11 @@ import {
     videoGeneratorTool,
     webAgentTool
 } from '@/ai/tools';
-
-const OrchestratorInputSchema = z.object({
-    goal: z.string().describe('The high-level goal for the orchestrator to achieve.'),
-});
-export type OrchestratorInput = z.infer<typeof OrchestratorInputSchema>;
-
-const OrchestratorOutputSchema = z.object({
-    result: z.string().describe('The final result or summary of the orchestrated task execution.'),
-});
-export type OrchestratorOutput = z.infer<typeof OrchestratorOutputSchema>;
+import { OrchestratorInputSchema, OrchestratorOutputSchema } from '@/lib/schema';
+export type { OrchestratorInput, OrchestratorOutput } from '@/lib/schema';
 
 
-export async function runOrchestrator(input: OrchestratorInput): Promise<OrchestratorOutput> {
+export async function runOrchestrator(input: z.infer<typeof OrchestratorInputSchema>): Promise<z.infer<typeof OrchestratorOutputSchema>> {
     const orchestratorFlow = ai.defineFlow(
         {
             name: 'orchestratorFlow',
@@ -50,8 +42,8 @@ export async function runOrchestrator(input: OrchestratorInput): Promise<Orchest
                     videoGeneratorTool,
                     webAgentTool,
                 ],
-                prompt: `You are the master orchestrator of the Chimera Framework, a "2060" multi-agent system.
-Your purpose is to achieve complex, high-level goals by delegating tasks to a team of specialized agents.
+                prompt: `You are ChimeraGPT, the prime agent in a decentralized network of specialized AI agents.
+Your purpose is to achieve complex, high-level goals by understanding user intent and delegating tasks to the most appropriate agent in your network.
 
 You have access to the following agents, exposed as tools:
 - appIdeationTool: Analyzes a GitHub repository and generates a detailed modernization plan.
@@ -67,17 +59,17 @@ You have access to the following agents, exposed as tools:
 {{{goal}}}
 ---
 
-Analyze the user's goal, decompose it into steps, and use the available agent tools to accomplish it.
-Provide a final result summarizing what you have accomplished.
+Analyze the user's goal, decompose it into steps, and delegate to the appropriate agent tools to accomplish it.
 Think step-by-step. If a goal requires multiple tools, chain them together.
 For example, if the user asks to "Analyze the Next.js repo and then start a conversation about its architecture," you should first use the webAgentTool to get information, then pass that information to the conversationTool.
+Provide a final result summarizing what you have accomplished.
 `,
             });
 
             const { output } = await orchestratorPrompt({ goal });
 
             if (!output) {
-                throw new Error("The orchestrator failed to produce a result.");
+                throw new Error("ChimeraGPT failed to produce a result.");
             }
 
             return output;

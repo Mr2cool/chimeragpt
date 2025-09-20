@@ -16,7 +16,7 @@ import { AlertCircle, BrainCircuit } from 'lucide-react';
 import { Logo } from './icons';
 import { useRouter } from 'next/navigation';
 
-export function Orchestrator() {
+export function ChimeraGPT() {
   const [result, setResult] = React.useState<string | null>(null);
   const [error, setError] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -53,7 +53,7 @@ export function Orchestrator() {
         <div className="mx-auto mb-4 inline-block">
           <Logo className="w-20 h-20 text-primary" />
         </div>
-        <h1 className="font-headline text-4xl font-bold text-foreground">Chimera Framework 2060</h1>
+        <h1 className="font-headline text-4xl font-bold text-foreground">ChimeraGPT</h1>
         <p className="mt-2 text-lg text-muted-foreground">A multi-agent system for complex task orchestration.</p>
         <Button variant="link" onClick={handleRepoNav}>Or, go to the legacy repository analyzer &rarr;</Button>
       </div>
@@ -61,10 +61,10 @@ export function Orchestrator() {
         <CardHeader>
           <CardTitle className="font-headline text-2xl flex items-center gap-2">
             <BrainCircuit className="w-6 h-6 text-primary" />
-            Orchestrator Agent
+            Central Intelligence
           </CardTitle>
           <CardDescription>
-            Provide a high-level goal. The Orchestrator will analyze it, decompose it into steps, and delegate tasks to its team of specialized agents.
+            Provide a high-level goal. ChimeraGPT will analyze it, decompose it into steps, and delegate tasks to its team of specialized agents.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -91,7 +91,7 @@ export function Orchestrator() {
                 )}
               />
               <Button type="submit" disabled={isLoading}>
-                {isLoading ? 'Orchestrating...' : 'Execute Goal'}
+                {isLoading ? 'Executing...' : 'Send Goal'}
               </Button>
             </form>
           </FormProvider>
@@ -101,7 +101,7 @@ export function Orchestrator() {
       {isLoading && (
          <Card>
             <CardHeader>
-                <CardTitle className="font-headline text-2xl">Orchestration in Progress...</CardTitle>
+                <CardTitle className="font-headline text-2xl">Execution in Progress...</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 prose dark:prose-invert max-w-none">
                 <Skeleton className="h-6 w-1/3" />
