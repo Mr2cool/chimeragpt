@@ -1,4 +1,4 @@
-import 'server-only';
+'use server';
 import {
   SidebarProvider,
   Sidebar,
@@ -29,7 +29,7 @@ interface RepoViewProps {
   packageJson: PackageJson | null;
 }
 
-export function RepoView({ repo, rawTree, readme, packageJson }: RepoViewProps) {
+export async function RepoView({ repo, rawTree, readme, packageJson }: RepoViewProps) {
   const filePaths = getFilePaths(rawTree);
   const tree = buildTree(rawTree);
 
@@ -87,14 +87,15 @@ export function RepoView({ repo, rawTree, readme, packageJson }: RepoViewProps) 
           <main className="flex-1 overflow-y-auto">
             <Tabs defaultValue="modernize" className="h-full flex flex-col">
               <div className="flex-shrink-0 px-4 pt-4">
-                <TabsList className="grid w-full grid-cols-7">
+                <TabsList className="grid w-full grid-cols-8">
                   <TabsTrigger value="modernize">Modernize</TabsTrigger>
                   <TabsTrigger value="readme">README</TabsTrigger>
                   <TabsTrigger value="review">Review</TabsTrigger>
                   <TabsTrigger value="design">Architect</TabsTrigger>
                   <TabsTrigger value="story">Story</TabsTrigger>
                   <TabsTrigger value="conversation">Conversation</TabsTrigger>
-                  <TabsTrigger value="web">Web Agent</TabsTrigger>
+                  <TabsTrigger value="web">Web</TabsTrigger>
+                  <TabsTrigger value="video">Video</TabsTrigger>
                 </TabsList>
               </div>
               <TabsContent value="modernize" className="flex-1 overflow-y-auto">
