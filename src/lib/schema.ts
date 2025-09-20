@@ -100,6 +100,19 @@ export const AppIdeationOutputSchema = z.object({
 export type AppIdeationOutput = z.infer<typeof AppIdeationOutputSchema>;
 
 
+// Schema for src/ai/flows/readme-qna.ts
+export const ReadmeQnaInputSchema = z.object({
+  readmeContent: z.string().describe("The full content of the README.md file."),
+  question: z.string().min(5, "Question must be at least 5 characters.").describe("The user's question about the README."),
+});
+export type ReadmeQnaInput = z.infer<typeof ReadmeQnaInputSchema>;
+
+export const ReadmeQnaOutputSchema = z.object({
+  answer: z.string().describe("The AI-generated answer to the user's question."),
+});
+export type ReadmeQnaOutput = z.infer<typeof ReadmeQnaOutputSchema>;
+
+
 // Schema for src/ai/flows/conversation-flow.ts
 export const ConversationInputSchema = z.object({
   topic: z.string().min(5, "Topic must be at least 5 characters.").describe("The topic for the AI agents to discuss."),
@@ -129,15 +142,3 @@ export const StoryCreatorOutputSchema = z.object({
   imageUrl: z.string().url().describe("The URL of the generated cover image."),
 });
 export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
-
-// Schema for src/ai/flows/readme-qna.ts
-export const ReadmeQnaInputSchema = z.object({
-  readmeContent: z.string().describe("The full content of the README.md file."),
-  question: z.string().min(5, "Question must be at least 5 characters.").describe("The user's question about the README."),
-});
-export type ReadmeQnaInput = z.infer<typeof ReadmeQnaInputSchema>;
-
-export const ReadmeQnaOutputSchema = z.object({
-  answer: z.string().describe("The AI-generated answer to the user's question."),
-});
-export type ReadmeQnaOutput = z.infer<typeof ReadmeQnaOutputSchema>;

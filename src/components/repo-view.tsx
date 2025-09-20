@@ -19,14 +19,14 @@ import { FrameworkDesigner } from './framework-designer';
 import { WebAgent } from './web-agent';
 import { VideoGenerator } from './video-generator';
 import { AppIdeation } from './app-ideation';
-import { ConversationStarter } from './conversation-starter';
-import { StoryCreator } from './story-creator';
-import { Star, GitFork, Video, Bot, Cpu, MessageSquare, BookOpen } from 'lucide-react';
+import { Star, GitFork, Video, Bot } from 'lucide-react';
 import { Button } from './ui/button';
 import { GithubIcon, Logo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { getFilePaths } from '@/lib/tree';
 import { DependencyList } from './dependency-list';
+import { ConversationStarter } from './conversation-starter';
+import { StoryCreator } from './story-creator';
 
 interface RepoViewProps {
   repo: GitHubRepo;
