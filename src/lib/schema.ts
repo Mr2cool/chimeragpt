@@ -83,3 +83,15 @@ export const ReadmeQnaOutputSchema = z.object({
   answer: z.string().describe('The answer to the user\'s question, formatted in markdown.'),
 });
 export type ReadmeQnaOutput = z.infer<typeof ReadmeQnaOutputSchema>;
+
+// Schema for src/ai/flows/story-creator.ts
+export const StoryCreatorInputSchema = z.object({
+    prompt: z.string().min(10).describe('The user\'s prompt for the story.'),
+});
+export type StoryCreatorInput = z.infer<typeof StoryCreatorInputSchema>;
+
+export const StoryCreatorOutputSchema = z.object({
+    story: z.string().describe('The generated story text.'),
+    imageUrl: z.string().describe('The data URI of the generated cover image.'),
+});
+export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
