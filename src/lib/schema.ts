@@ -45,3 +45,15 @@ export const DesignFrameworkOutputSchema = z.object({
   architecture: z.string().describe('A markdown-formatted document describing the proposed conceptual architecture for the new framework.'),
 });
 export type DesignFrameworkOutput = z.infer<typeof DesignFrameworkOutputSchema>;
+
+// Schema for src/ai/flows/web-agent.ts
+export const WebTaskInputSchema = z.object({
+  url: z.string().url().describe('The URL of the webpage to analyze.'),
+  task: z.string().describe('The task to perform on the webpage.'),
+});
+export type WebTaskInput = z.infer<typeof WebTaskInputSchema>;
+
+export const WebTaskOutputSchema = z.object({
+  result: z.string().describe('The result of the task, formatted as a markdown document.'),
+});
+export type WebTaskOutput = z.infer<typeof WebTaskOutputSchema>;
