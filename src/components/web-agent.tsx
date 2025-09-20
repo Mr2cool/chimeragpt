@@ -25,7 +25,7 @@ export function WebAgent() {
     resolver: zodResolver(WebTaskInputSchema),
     defaultValues: {
       url: 'https://en.wikipedia.org/wiki/React_(software)',
-      task: 'Resume la historia de este framework.',
+      task: 'Summarize the history of this framework and find out what the latest stable version is.',
       userData: `My name is John Doe, I live at 123 Main St, and I am a software engineer. My manager asked me to research the history of React for a presentation. I need a summary of its key milestones.`
     },
   });
@@ -50,10 +50,10 @@ export function WebAgent() {
         <CardHeader>
           <CardTitle className="font-headline text-2xl flex items-center gap-2">
             <Globe className="w-6 h-6 text-primary" />
-            Privacy-Aware Web Agent
+            Advanced Web Agent
           </CardTitle>
           <CardDescription>
-            Provide a URL, a task, and some context. The agent will analyze the webpage, but it will first use a privacy filter to extract only the necessary information from your data to perform the task, preventing leaks of sensitive info.
+            Provide a URL and a task. The agent will analyze the webpage, search the web for more information if needed, and perform the task. It is also privacy-aware and will only use necessary data from the context you provide.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -72,7 +72,7 @@ export function WebAgent() {
                       />
                     </FormControl>
                     <FormDescription>
-                      The full URL of the webpage you want the agent to visit.
+                      The full URL of the webpage you want the agent to start with.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -83,16 +83,16 @@ export function WebAgent() {
                 name="task"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Task Description (Any Language)</FormLabel>
+                    <FormLabel>Task Description</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="e.g., Summarize the main points of the article."
+                        placeholder="e.g., Summarize the main points and find related news articles."
                         {...field}
                         rows={2}
                       />
                     </FormControl>
                     <FormDescription>
-                      Clearly describe what you want the agent to do on the page.
+                      Describe what you want the agent to accomplish.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -103,7 +103,7 @@ export function WebAgent() {
                 name="userData"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Your Data / Context</FormLabel>
+                    <FormLabel>Your Data / Context (Optional)</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="e.g., Provide any context the agent might need. The agent will only use what is necessary."
@@ -112,7 +112,7 @@ export function WebAgent() {
                       />
                     </FormControl>
                     <FormDescription>
-                      Provide any background information or data the agent might need. It will be filtered for privacy.
+                      Provide any background information. It will be filtered for privacy.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
