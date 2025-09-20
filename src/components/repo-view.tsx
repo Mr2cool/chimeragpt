@@ -17,8 +17,9 @@ import { ReadmeDisplay } from './readme-display';
 import { RepoAnalysis } from './repo-analysis';
 import { FrameworkDesigner } from './framework-designer';
 import { WebAgent } from './web-agent';
+import { VideoGenerator } from './video-generator';
 import { DependencyList } from './dependency-list';
-import { Star, GitFork } from 'lucide-react';
+import { Star, GitFork, Video } from 'lucide-react';
 import { Button } from './ui/button';
 import { GithubIcon, Logo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -96,6 +97,10 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                             <TabsTrigger value="analysis" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Analysis</TabsTrigger>
                             <TabsTrigger value="designer" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Designer</TabsTrigger>
                             <TabsTrigger value="web-agent" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Web Agent</TabsTrigger>
+                            <TabsTrigger value="video" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
+                                <Video className="w-4 h-4 mr-2"/>
+                                Video
+                            </TabsTrigger>
                         </TabsList>
                     </div>
                     <TabsContent value="readme" className="mt-0">
@@ -113,6 +118,9 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                     </TabsContent>
                      <TabsContent value="web-agent" className="mt-0">
                         <WebAgent />
+                    </TabsContent>
+                     <TabsContent value="video" className="mt-0">
+                        <VideoGenerator />
                     </TabsContent>
                 </Tabs>
             </main>

@@ -8,7 +8,6 @@ export async function fetchUrlContent(url: string): Promise<string | null> {
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.9',
         },
-        // In a real app, you might want to handle redirects more gracefully
         redirect: 'follow'
     });
 
@@ -19,8 +18,7 @@ export async function fetchUrlContent(url: string): Promise<string | null> {
 
     const contentType = response.headers.get('content-type');
     if (!contentType || !contentType.includes('text/html')) {
-        console.error(`URL did not return HTML content: ${url}`);
-        return null;
+        console.warn(`URL did not return HTML content: ${url}, got ${contentType}`);
     }
 
     return await response.text();
@@ -28,4 +26,37 @@ export async function fetchUrlContent(url: string): Promise<string | null> {
     console.error(`Error fetching URL content for ${url}:`, error);
     return null;
   }
+}
+
+export function extractImageUrls(htmlContent: string, baseUrl: string): string[] {
+    const imageUrls = new Set<string>();
+    const imgRegex = /<img[^>]+src="([^">]+)"/g;
+    let match;
+
+    while ((match = imgRegex.exec(htmlContent)) !== null) {
+        try {
+            const url = new URL(match[1], baseUrl).href;
+            imageUrls.add(url);
+        } catch (e) {
+            // Ignore invalid URLs
+        }
+    }
+    return Array.from(imageUrls);
+}
+
+export async function fetchImageAsDataUri(imageUrl: string): Promise<string | null> {
+    try {
+        const response = await fetch(imageUrl);
+        if (!response.ok) {
+            console.error(`Failed to fetch image: ${imageUrl}, status: ${response.status}`);
+            return null;
+        }
+        const contentType = response.headers.get('content-type') || 'image/jpeg';
+        const buffer = await response.arrayBuffer();
+        const base64 = Buffer.from(buffer).toString('base64');
+        return `data:${contentType};base64,${base64}`;
+    } catch (error) {
+        console.error(`Error fetching image as data URI for ${imageUrl}:`, error);
+        return null;
+    }
 }

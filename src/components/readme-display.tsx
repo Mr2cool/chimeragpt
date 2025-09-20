@@ -1,5 +1,6 @@
 import 'server-only';
 import { enhanceReadme } from '@/ai/flows/readme-enhancement';
+import { ReadmeQna } from './readme-qna';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Card } from './ui/card';
@@ -17,7 +18,9 @@ export async function ReadmeDisplay({ readmeContent, repoDescription, repoUrl }:
     console.error("Failed to enhance README:", error);
   }
 
-  if (!displayContent.trim()) {
+  const hasContent = displayContent && displayContent.trim() && !displayContent.includes("No README found");
+
+  if (!hasContent) {
     return (
         <Card className="m-4 flex flex-col items-center justify-center p-8 min-h-[300px]">
             <h2 className='text-xl font-semibold font-headline'>No README found</h2>
@@ -39,6 +42,7 @@ export async function ReadmeDisplay({ readmeContent, repoDescription, repoUrl }:
             {displayContent}
             </ReactMarkdown>
         </article>
+        <ReadmeQna readmeContent={readmeContent} />
     </div>
   );
 }

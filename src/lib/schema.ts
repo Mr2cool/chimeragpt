@@ -46,6 +46,7 @@ export const DesignFrameworkOutputSchema = z.object({
 });
 export type DesignFrameworkOutput = z.infer<typeof DesignFrameworkOutputSchema>;
 
+
 // Schema for src/ai/flows/web-agent.ts
 export const WebTaskInputSchema = z.object({
   url: z.string().url().describe('The URL of the webpage to analyze.'),
@@ -57,3 +58,28 @@ export const WebTaskOutputSchema = z.object({
   result: z.string().describe('The result of the task, formatted as a markdown document.'),
 });
 export type WebTaskOutput = z.infer<typeof WebTaskOutputSchema>;
+
+
+// Schema for src/ai/flows/video-generation.ts
+export const GenerateVideoInputSchema = z.object({
+  prompt: z.string().describe('A text description of the video to generate.'),
+});
+export type GenerateVideoInput = z.infer<typeof GenerateVideoInputSchema>;
+
+export const GenerateVideoOutputSchema = z.object({
+  videoUrl: z.string().describe('The data URI of the generated video.'),
+});
+export type GenerateVideoOutput = z.infer<typeof GenerateVideoOutputSchema>;
+
+
+// Schema for src/ai/flows/readme-qna.ts
+export const ReadmeQnaInputSchema = z.object({
+  readmeContent: z.string().describe('The content of the README.md file.'),
+  question: z.string().describe('The user\'s question about the README content.'),
+});
+export type ReadmeQnaInput = z.infer<typeof ReadmeQnaInputSchema>;
+
+export const ReadmeQnaOutputSchema = z.object({
+  answer: z.string().describe('The answer to the user\'s question, formatted in markdown.'),
+});
+export type ReadmeQnaOutput = z.infer<typeof ReadmeQnaOutputSchema>;
