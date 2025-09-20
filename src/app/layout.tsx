@@ -4,8 +4,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Nano GitHub Viewer',
-  description: 'A lightweight GitHub repository viewer.',
+  title: 'The Chimera Framework',
+  description: 'An AI-powered multi-agent application development framework.',
 };
 
 export default function RootLayout({
