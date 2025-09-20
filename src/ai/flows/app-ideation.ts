@@ -8,10 +8,18 @@
 import { ai } from '@/ai/genkit';
 import { AppIdeationInputSchema, AppIdeationOutputSchema, type AppIdeationInput, type AppIdeationOutput } from '@/lib/schema';
 
-// Agent 1: The Analyst - Understands the source repository
-const analystAgent = ai.definePrompt({
-    name: 'analystAgent',
-    prompt: `You are a Senior Software Architect. Your job is to analyze a source repository to understand its core purpose, technology, and structure.
+export async function generateAppIdeas(input: AppIdeationInput): Promise<AppIdeationOutput> {
+    const appIdeationFlow = ai.defineFlow(
+        {
+            name: 'appIdeationFlow',
+            inputSchema: AppIdeationInputSchema,
+            outputSchema: AppIdeationOutputSchema,
+        },
+        async (input) => {
+            // Agent 1: The Analyst - Understands the source repository
+            const analystAgent = ai.definePrompt({
+                name: 'analystAgent',
+                prompt: `You are a Senior Software Architect. Your job is to analyze a source repository to understand its core purpose, technology, and structure.
 
 Source Repository: {{repoName}}
 Description: {{repoDescription}}
@@ -22,12 +30,12 @@ File Structure:
 
 Based on this, provide a concise, one-paragraph summary of the repository's core concept and key technologies. This summary will be used by other agents to brainstorm new ideas.
 `,
-});
+            });
 
-// Agent 2: The Brainstormer - Generates new application ideas
-const brainstormerAgent = ai.definePrompt({
-    name: 'brainstormerAgent',
-    prompt: `You are a creative Product Manager. Based on the following summary of an existing project, brainstorm a list of {{numIdeas}} new, innovative application ideas that expand upon or are inspired by the original concept.
+            // Agent 2: The Brainstormer - Generates new application ideas
+            const brainstormerAgent = ai.definePrompt({
+                name: 'brainstormerAgent',
+                prompt: `You are a creative Product Manager. Based on the following summary of an existing project, brainstorm a list of {{numIdeas}} new, innovative application ideas that expand upon or are inspired by the original concept.
 
 For each idea, provide only a creative name and a one-sentence description.
 
@@ -36,15 +44,15 @@ Source Project Summary:
 {{{analysisSummary}}}
 ---
 
-Your output should be a simple list of names and descriptions.
+Your output should be a simple list of names and descriptions, each on a new line, formatted like: "Idea Name: Idea Description".
 `,
-});
+            });
 
-// Agent 3: The Planner - Creates a detailed plan for a single idea
-const plannerAgent = ai.definePrompt({
-    name: 'plannerAgent',
-    output: { schema: AppIdeationOutputSchema.shape.ideas.element },
-    prompt: `You are a Lead AI Engineer and Project Planner. Your task is to take a single application idea and create a detailed project plan.
+            // Agent 3: The Planner - Creates a detailed plan for a single idea
+            const plannerAgent = ai.definePrompt({
+                name: 'plannerAgent',
+                output: { schema: AppIdeationOutputSchema.shape.ideas.element },
+                prompt: `You are a Lead AI Engineer and Project Planner. Your task is to take a single application idea and create a detailed project plan.
 
 Application Idea: {{ideaName}} - {{ideaDescription}}
 Source Repository Context: The original project was about '{{repoDescription}}' and used technologies suggested by its file paths.
@@ -56,18 +64,8 @@ Based on this, create a practical and detailed project proposal. Your proposal M
 4.  **agents**: A list of at least two AI agents that would be required to build this application. For each agent, provide a name (e.g., "DataProcessingAgent") and a description of its specific role and responsibilities.
 5.  **todoList**: A high-level list of 5-7 actionable TODO items for a developer to start building the project.
 `,
-});
+            });
 
-
-// Orchestrator Flow
-export async function generateAppIdeas(input: AppIdeationInput): Promise<AppIdeationOutput> {
-    const appIdeationFlow = ai.defineFlow(
-        {
-            name: 'appIdeationFlow',
-            inputSchema: AppIdeationInputSchema,
-            outputSchema: AppIdeationOutputSchema,
-        },
-        async (input) => {
             // Step 1: Analyst agent summarizes the source repository.
             const analysisResponse = await analystAgent(input);
             const analysisSummary = analysisResponse.text;
@@ -86,9 +84,9 @@ export async function generateAppIdeas(input: AppIdeationInput): Promise<AppIdea
             }
 
             // Parse the brainstormed ideas (simple parsing based on expected format)
-            const ideaLines = ideasText.split('\n').filter(line => line.trim().length > 0);
+            const ideaLines = ideasText.split('\n').filter(line => line.trim().length > 0 && line.includes(':'));
             const ideaPromises = ideaLines.map(async (line) => {
-                const match = line.match(/^(?:-|\*|\d+\.)?\s*(.*?):\s*(.*)/);
+                const match = line.match(/^(?:-|\*|\d+\.)?\s*([^:]+):\s*(.*)/);
                 if (!match) return null;
                 const [, ideaName, ideaDescription] = match;
 

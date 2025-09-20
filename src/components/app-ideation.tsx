@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from './ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
-import { AlertCircle, Bot, Code, ListTodo, WandSparkles, Cpu } from 'lucide-react';
+import { AlertCircle, Cpu, ListTodo, WandSparkles, Code } from 'lucide-react';
 import { Slider } from './ui/slider';
 import { Label } from './ui/label';
 import { Badge } from './ui/badge';
@@ -54,7 +54,7 @@ export function AppIdeation({ repo }: AppIdeationProps) {
             AI-Powered App Ideation
           </CardTitle>
           <CardDescription>
-            Click the button below to generate new application ideas based on the current repository. A multi-agent system will analyze the repo, brainstorm concepts, and create a detailed plan for each.
+            Use the slider to choose how many new application ideas to generate based on the current repository. A multi-agent system will then analyze the repo, brainstorm concepts, and create a detailed plan for each.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -86,8 +86,8 @@ export function AppIdeation({ repo }: AppIdeationProps) {
                         <Skeleton className="h-6 w-3/4" />
                         <Skeleton className="h-4 w-1/2 mt-1" />
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                        <Skeleton className="h-16 w-full" />
+                    <CardContent className="space-y-6">
+                        <Skeleton className="h-12 w-full" />
                          <div className="space-y-2">
                             <Skeleton className="h-5 w-1/4" />
                             <div className="flex flex-wrap gap-2">
@@ -96,7 +96,24 @@ export function AppIdeation({ repo }: AppIdeationProps) {
                                 <Skeleton className="h-6 w-16 rounded-full" />
                             </div>
                         </div>
+                         <div className="space-y-2">
+                            <Skeleton className="h-5 w-1/4" />
+                            <div className="space-y-2">
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-5/6" />
+                            </div>
+                        </div>
                     </CardContent>
+                    <CardFooter className="bg-muted/50 dark:bg-muted/20 p-6">
+                         <div className="space-y-2 w-full">
+                            <Skeleton className="h-5 w-1/3" />
+                            <div className="space-y-2">
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-4/5" />
+                            </div>
+                        </div>
+                    </CardFooter>
                 </Card>
             ))}
         </div>
@@ -111,7 +128,7 @@ export function AppIdeation({ repo }: AppIdeationProps) {
       )}
 
       {result && (
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
           {result.ideas.map((idea, index) => (
             <Card key={index} className="flex flex-col">
               <CardHeader>
@@ -129,7 +146,7 @@ export function AppIdeation({ repo }: AppIdeationProps) {
 
                 <div>
                   <h4 className="font-semibold text-sm mb-2 flex items-center gap-2"><Cpu className="w-4 h-4"/>AI Agents</h4>
-                  <div className="space-y-2 text-sm">
+                  <div className="space-y-3 text-sm">
                     {idea.agents.map(agent => (
                       <div key={agent.name}>
                         <p className="font-medium text-foreground">{agent.name}</p>
@@ -139,9 +156,9 @@ export function AppIdeation({ repo }: AppIdeationProps) {
                   </div>
                 </div>
               </CardContent>
-              <CardFooter className="flex-col items-start p-6 bg-muted/50 dark:bg-muted/20">
+              <CardFooter className="flex-col items-start p-6 bg-muted/50 dark:bg-muted/20 mt-auto">
                 <h4 className="font-semibold text-sm mb-2 flex items-center gap-2"><ListTodo className="w-4 h-4"/>To-Do List</h4>
-                <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                <ul className="list-disc pl-5 space-y-1.5 text-sm text-muted-foreground">
                   {idea.todoList.map((task, i) => <li key={i}>{task}</li>)}
                 </ul>
               </CardFooter>
