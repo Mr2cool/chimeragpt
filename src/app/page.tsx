@@ -1,7 +1,21 @@
 import { RepoInputForm } from '@/components/repo-input-form';
 import { RepoView } from '@/components/repo-view';
-import { getRepo, getTree, getReadme, getPackageJson } from '@/lib/github';
+import type { GitHubRepo, GitHubFile, PackageJson } from '@/lib/types';
 import { buildTree } from '@/lib/tree';
+
+async function fetchRepoData(repoUrl: string) {
+  const response = await fetch(`/api/repo?url=${encodeURIComponent(repoUrl)}`, {
+    next: { revalidate: 3600 } // Revalidate every hour
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.error || 'Failed to fetch repository data.');
+  }
+
+  return response.json();
+}
+
 
 export default async function Home({ searchParams }: { searchParams: { repo?: string } }) {
   const repoUrl = searchParams.repo;
@@ -14,32 +28,25 @@ export default async function Home({ searchParams }: { searchParams: { repo?: st
     );
   }
 
-  const repoMatch = repoUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
-  if (!repoMatch) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center p-8">
-        <RepoInputForm error="Invalid GitHub repository URL. Please use the format https://github.com/owner/repo" initialValue={repoUrl} />
-      </main>
-    );
-  }
-
-  const [, owner, repoName] = repoMatch;
-
   try {
-    const repo = await getRepo(owner, repoName);
-    const rawTree = await getTree(owner, repoName, repo.default_branch);
-    const readme = await getReadme(owner, repoName);
-    const packageJson = await getPackageJson(owner, repoName, repo.default_branch);
+    const { repo, rawTree, readme, packageJson } = await fetchRepoData(repoUrl);
     
     const tree = buildTree(rawTree);
 
     return <RepoView repo={repo} tree={tree} readme={readme || ''} packageJson={packageJson} />;
 
   } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : "Failed to fetch repository data.";
+    const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred.";
+     if (errorMessage.includes("Invalid GitHub repository URL")) {
+       return (
+          <main className="flex min-h-screen flex-col items-center justify-center p-8">
+            <RepoInputForm error={errorMessage} initialValue={repoUrl} />
+          </main>
+       )
+    }
     return (
       <main className="flex min-h-screen flex-col items-center justify-center p-8">
-        <RepoInputForm error={errorMessage} initialValue={repoUrl} />
+        <RepoInputForm error={`Error fetching repository: ${errorMessage}`} initialValue={repoUrl} />
       </main>
     );
   }
