@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { answerReadmeQuestion } from '@/ai/flows/readme-qna';
 import { ReadmeQnaInputSchema, type ReadmeQnaInput } from '@/lib/schema';
 import { Button } from '@/components/ui/button';
@@ -22,7 +23,7 @@ export function ReadmeQna({ readmeContent }: { readmeContent: string }) {
     const [isLoading, setIsLoading] = React.useState(false);
 
     const form = useForm<{ question: string }>({
-        resolver: zodResolver(z.object({ question: z.string().min(5) })),
+        resolver: zodResolver(z.object({ question: z.string().min(5, { message: "Question must be at least 5 characters."}) })),
         defaultValues: {
             question: '',
         },
