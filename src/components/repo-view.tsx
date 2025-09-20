@@ -25,8 +25,8 @@ import { GithubIcon, Logo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { getFilePaths } from '@/lib/tree';
 import { DependencyList } from './dependency-list';
-import { ConversationStarter } from './conversation-starter';
 import { StoryCreator } from './story-creator';
+import { ConversationStarter } from './conversation-starter';
 
 interface RepoViewProps {
   repo: GitHubRepo;

@@ -1,10 +1,10 @@
 import { RepoInputForm } from '@/components/repo-input-form';
 import { RepoView } from '@/components/repo-view';
-import type { GitHubRepo, GitHubFile, PackageJson } from '@/lib/types';
-import { buildTree } from '@/lib/tree';
 
 async function fetchRepoData(repoUrl: string) {
-  const response = await fetch(`/api/repo?url=${encodeURIComponent(repoUrl)}`, {
+  // Use the full URL for fetch on the server-side.
+  const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:9002';
+  const response = await fetch(`${baseUrl}/api/repo?url=${encodeURIComponent(repoUrl)}`, {
     next: { revalidate: 3600 } // Revalidate every hour
   });
 

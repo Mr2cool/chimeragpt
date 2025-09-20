@@ -23,7 +23,12 @@ async function githubFetch<T>(endpoint: string): Promise<T | null> {
     const errorBody = await res.json();
     throw new Error(`GitHub API error: ${errorBody.message || res.statusText}`);
   }
-  return res.json() as T;
+  // Check if response is empty
+  const text = await res.text();
+  if (!text) {
+    return null;
+  }
+  return JSON.parse(text) as T;
 }
 
 export async function getRepo(owner: string, repo: string): Promise<GitHubRepo> {
@@ -56,7 +61,7 @@ async function getFileContent(owner: string, repo: string, path: string, branch:
 
 export async function getReadme(owner: string, repo: string): Promise<string | null> {
     const data = await githubFetch<GitHubContentResponse>(`/repos/${owner}/${repo}/readme`);
-    if (data && data.encoding === 'base64') {
+    if (data && 'content' in data && data.encoding === 'base64') {
         return Buffer.from(data.content, 'base64').toString('utf-8');
     }
     return `# ${repo}\n\nNo README found for this repository.`;
