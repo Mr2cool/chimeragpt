@@ -88,16 +88,16 @@ export type AppIdeationInput = z.infer<typeof AppIdeationInputSchema>;
 export const AppIdeationOutputSchema = z.object({
   ideas: z.array(
     z.object({
-      name: z.string().describe("The name of the modernization plan."),
-      description: z.string().describe("A detailed one-paragraph description of the proposed modernization."),
-      techStack: z.array(z.string()).describe("A list of recommended technologies for the upgrade."),
+      name: z.string().describe("A new, modern name for the application (e.g., 'ProjectName 2.0')."),
+      description: z.string().describe("A one-paragraph summary of the modernization plan, outlining the key benefits and goals."),
+      techStack: z.array(z.string()).describe("A list of recommended modern technologies to upgrade to (e.g., Next.js, Tailwind CSS, Genkit, Firebase). Be specific about what they would replace."),
       agents: z.array(
         z.object({
           name: z.string().describe("The name of a new AI agent to integrate."),
           description: z.string().describe("The description of the new AI agent's role."),
         })
-      ).describe("A list of new AI agents that could be integrated into the modernized application."),
-      todoList: z.array(z.string()).describe("A high-level list of actionable to-do items for the modernization project."),
+      ).describe("A list of at least two new AI agents that could be integrated into the modernized application to enhance its capabilities."),
+      todoList: z.array(z.string()).describe("A high-level list of 5-7 actionable TODO items for a developer to start the modernization project."),
     })
   ).describe("A list of generated modernization plans."),
 });
