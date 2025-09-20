@@ -50,7 +50,7 @@ export type DesignFrameworkOutput = z.infer<typeof DesignFrameworkOutputSchema>;
 // Schema for src/ai/flows/web-agent.ts
 export const WebTaskInputSchema = z.object({
   url: z.string().url().describe('The URL of the webpage to analyze.'),
-  task: z.string().describe('The task to perform on the webpage.'),
+  task: z. string().describe('The task to perform on the webpage.'),
 });
 export type WebTaskInput = z.infer<typeof WebTaskInputSchema>;
 
