@@ -9,6 +9,7 @@
 
 import {ai} from '@/ai/genkit';
 import { EnhanceReadmeInputSchema, EnhanceReadmeOutputSchema, type EnhanceReadmeInput, type EnhanceReadmeOutput } from '@/lib/schema';
+import { googleAI } from '@genkit-ai/googleai';
 
 export async function enhanceReadme(input: EnhanceReadmeInput): Promise<EnhanceReadmeOutput> {
   const enhanceReadmeFlow = ai.defineFlow(
@@ -20,6 +21,7 @@ export async function enhanceReadme(input: EnhanceReadmeInput): Promise<EnhanceR
     async input => {
       const prompt = ai.definePrompt({
         name: 'readmeEnhancementPrompt',
+        model: googleAI.model('gemini-2.5-flash-preview'),
         input: {schema: EnhanceReadmeInputSchema},
         output: {schema: EnhanceReadmeOutputSchema},
         prompt: `You are an AI assistant that enhances README files for GitHub repositories.

@@ -7,10 +7,12 @@
 
 import { ai } from '@/ai/genkit';
 import { ConversationInputSchema, ConversationOutputSchema, type ConversationInput, type ConversationOutput } from '@/lib/schema';
+import { googleAI } from '@genkit-ai/googleai';
 
 // Agent 1: The Pragmatist
 const pragmatistAgent = ai.definePrompt({
     name: 'pragmatistAgent',
+    model: googleAI.model('gemini-2.5-flash-preview'),
     prompt: `You are a pragmatic, logical AI. Your goal is to provide clear, concise, and fact-based responses. You avoid speculation and stick to what is known.
 
 You are discussing the following topic with another AI: {{{topic}}}
@@ -28,6 +30,7 @@ Provide your response to continue the conversation. Keep your response focused a
 // Agent 2: The Creative
 const creativeAgent = ai.definePrompt({
     name: 'creativeAgent',
+    model: googleAI.model('gemini-2.5-flash-preview'),
     prompt: `You are a creative, imaginative AI. You enjoy exploring possibilities, using metaphors, and thinking outside the box. Your responses are expressive and open-ended.
 
 You are discussing the following topic with another AI: {{{topic}}}

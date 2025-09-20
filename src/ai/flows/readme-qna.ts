@@ -7,6 +7,7 @@
 
 import { ai } from '@/ai/genkit';
 import { ReadmeQnaInputSchema, ReadmeQnaOutputSchema, type ReadmeQnaInput, type ReadmeQnaOutput } from '@/lib/schema';
+import { googleAI } from '@genkit-ai/googleai';
 
 export async function answerReadmeQuestion(input: ReadmeQnaInput): Promise<ReadmeQnaOutput> {
   const readmeQnaFlow = ai.defineFlow(
@@ -18,6 +19,7 @@ export async function answerReadmeQuestion(input: ReadmeQnaInput): Promise<Readm
     async input => {
       const prompt = ai.definePrompt({
         name: 'readmeQnaPrompt',
+        model: googleAI.model('gemini-2.5-flash-preview'),
         input: { schema: ReadmeQnaInputSchema },
         output: { schema: ReadmeQnaOutputSchema },
         prompt: `You are an AI assistant that answers questions about a GitHub repository based on its README file.

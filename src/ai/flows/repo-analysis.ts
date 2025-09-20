@@ -7,6 +7,7 @@
 
 import {ai} from '@/ai/genkit';
 import { RepoAnalysisInputSchema, RepoAnalysisOutputSchema, type RepoAnalysisInput, type RepoAnalysisOutput } from '@/lib/schema';
+import { googleAI } from '@genkit-ai/googleai';
 
 export async function analyzeRepo(input: RepoAnalysisInput): Promise<RepoAnalysisOutput> {
   const repoAnalysisFlow = ai.defineFlow(
@@ -18,6 +19,7 @@ export async function analyzeRepo(input: RepoAnalysisInput): Promise<RepoAnalysi
     async input => {
       const prompt = ai.definePrompt({
         name: 'repoAnalysisPrompt',
+        model: googleAI.model('gemini-2.5-flash-preview'),
         input: {schema: RepoAnalysisInputSchema},
         output: {schema: RepoAnalysisOutputSchema},
         prompt: `You are an expert Code Auditor AI. Your task is to analyze a GitHub repository based on its file paths, dependencies, and description to identify potential issues.

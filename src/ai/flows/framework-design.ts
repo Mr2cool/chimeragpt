@@ -8,6 +8,7 @@
 
 import {ai} from '@/ai/genkit';
 import { DesignFrameworkInputSchema, DesignFrameworkOutputSchema, type DesignFrameworkInput, type DesignFrameworkOutput } from '@/lib/schema';
+import { googleAI } from '@genkit-ai/googleai';
 
 export async function designFramework(input: DesignFrameworkInput): Promise<DesignFrameworkOutput> {
     const knownFrameworks = [
@@ -33,6 +34,7 @@ export async function designFramework(input: DesignFrameworkInput): Promise<Desi
       async input => {
         const prompt = ai.definePrompt({
           name: 'frameworkDesignPrompt',
+          model: googleAI.model('gemini-2.5-flash-preview'),
           input: {schema: DesignFrameworkInputSchema},
           output: {schema: DesignFrameworkOutputSchema},
           prompt: `You are a world-class AI architect specializing in multi-agent systems. Your task is to design a high-level conceptual architecture for a **new, unified framework** that can handle multi-agent deployment, communication protocols, and collaboration.

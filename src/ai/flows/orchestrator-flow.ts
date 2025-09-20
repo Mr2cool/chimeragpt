@@ -18,6 +18,7 @@ import {
     webAgentTool
 } from '@/ai/tools';
 import { OrchestratorInputSchema, OrchestratorOutputSchema } from '@/lib/schema';
+import { googleAI } from '@genkit-ai/googleai';
 export type { OrchestratorInput, OrchestratorOutput } from '@/lib/schema';
 
 
@@ -32,6 +33,7 @@ export async function runOrchestrator(input: z.infer<typeof OrchestratorInputSch
 
             const orchestratorPrompt = ai.definePrompt({
                 name: 'orchestratorPrompt',
+                model: googleAI.model('gemini-2.5-flash-preview'),
                 output: { schema: OrchestratorOutputSchema },
                 tools: [
                     appIdeationTool,
