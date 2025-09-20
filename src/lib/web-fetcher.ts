@@ -13,7 +13,7 @@ export async function fetchUrlContent(url: string): Promise<string | null> {
 
     if (!response.ok) {
       console.error(`Failed to fetch URL: ${url}, status: ${response.status}`);
-      return null;
+      return `Error: Failed to fetch the URL. Status code: ${response.status}`;
     }
 
     const contentType = response.headers.get('content-type');
@@ -24,7 +24,7 @@ export async function fetchUrlContent(url: string): Promise<string | null> {
     return await response.text();
   } catch (error) {
     console.error(`Error fetching URL content for ${url}:`, error);
-    return null;
+    return `Error: Could not fetch content from the URL. Please check if it's correct.`;
   }
 }
 

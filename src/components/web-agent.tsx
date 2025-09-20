@@ -14,7 +14,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Skeleton } from './ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, Globe } from 'lucide-react';
 
 export function WebAgent() {
   const [result, setResult] = React.useState<string | null>(null);
@@ -24,8 +24,8 @@ export function WebAgent() {
   const form = useForm<WebTaskInput>({
     resolver: zodResolver(WebTaskInputSchema),
     defaultValues: {
-      url: '',
-      task: '',
+      url: 'https://en.wikipedia.org/wiki/React_(software)',
+      task: 'Summarize the history of this framework.',
     },
   });
 
@@ -47,9 +47,12 @@ export function WebAgent() {
     <div className="p-4 md:p-6 lg:p-8 space-y-8">
       <Card>
         <CardHeader>
-          <CardTitle className="font-headline text-2xl">Multimodal Web Agent</CardTitle>
+          <CardTitle className="font-headline text-2xl flex items-center gap-2">
+            <Globe className="w-6 h-6 text-primary" />
+            Multimodal Web Agent
+          </CardTitle>
           <CardDescription>
-            Provide a URL and a task for the AI agent to perform on the webpage.
+            Provide a URL and a task. The agent will visit the webpage, analyze its content (including images), and use web search if needed to complete your request.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -107,12 +110,16 @@ export function WebAgent() {
             <CardHeader>
                 <CardTitle className="font-headline text-2xl">Agent Output</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 prose dark:prose-invert max-w-none">
                 <Skeleton className="h-6 w-1/4" />
                 <div className="space-y-2">
                     <Skeleton className="h-4 w-full" />
                     <Skeleton className="h-4 w-full" />
                     <Skeleton className="h-4 w-3/4" />
+                </div>
+                 <div className="space-y-2 mt-6">
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-5/6" />
                 </div>
             </CardContent>
         </Card>
@@ -132,7 +139,7 @@ export function WebAgent() {
             <CardTitle className="font-headline text-2xl">Agent Output</CardTitle>
           </CardHeader>
           <CardContent>
-            <article className="prose dark:prose-invert">
+            <article className="prose dark:prose-invert max-w-none">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{result}</ReactMarkdown>
             </article>
           </CardContent>

@@ -42,7 +42,7 @@ const imageAnalysisTool = ai.defineTool(
             const dataUri = await fetchImageAsDataUri(input.imageUrl);
             if (!dataUri) return "Failed to fetch image.";
 
-            const { text } = await ai.generate({
+            const { output } = await ai.generate({
                 model: 'googleai/gemini-pro-vision',
                 prompt: [{
                     media: { url: dataUri }
@@ -51,7 +51,7 @@ const imageAnalysisTool = ai.defineTool(
                 }],
             });
             
-            return text() || "Could not analyze image.";
+            return output || "Could not analyze image.";
 
         } catch (e) {
             console.error("Image analysis tool failed", e);
