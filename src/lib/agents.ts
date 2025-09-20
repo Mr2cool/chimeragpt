@@ -1,4 +1,3 @@
-// src/lib/agents.ts
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
 
@@ -73,8 +72,11 @@ Based on the task and history, decide which action to take next.
 Respond with the name of the action and the input for it in a single line, like this: "ActionName: input value".`,
     });
 
-    const response = await prompt();
-    const [actionName, ...inputParts] = response.text.split(':');
+    const { text } = await prompt();
+    if (!text) {
+      throw new Error("Agent failed to generate a response.");
+    }
+    const [actionName, ...inputParts] = text.split(':');
     const input = inputParts.join(':').trim();
 
     this.memory.add(`Agent Thought: I will use the ${actionName} tool.`);
@@ -113,7 +115,7 @@ Respond with the name of the action and the input for it in a single line, like 
 export class ManagerAgent extends AIAgent {
     public team: AIAgent[];
 
-    constructor(name: string, role: string, team: AIAIAgent[]) {
+    constructor(name: string, role: string, team: AIAgent[]) {
         // The manager's "actions" are its team members.
         const teamAsActions = team.map(agent => new (class extends BaseAction {
             name = agent.name;
