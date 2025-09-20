@@ -50,7 +50,7 @@ You have access to the following agents, exposed as tools:
 - conversationTool: Kicks off a discussion between a Pragmatist and a Creative AI on a given topic.
 - designFrameworkTool: Designs a conceptual architecture for a new multi-agent framework.
 - readmeQnaTool: Answers questions about a README file.
-- storyCreatorTool: Creates a short story with a cover image.
+- storyCreatorTool: Creates a short story with a cover image and a video trailer.
 - videoGeneratorTool: Generates a short video from a text prompt.
 - webAgentTool: Performs a task on a webpage with privacy-awareness.
 

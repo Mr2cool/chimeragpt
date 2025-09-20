@@ -1,13 +1,14 @@
 'use server';
 /**
- * @fileOverview A multi-agent flow to create a short story with a cover image.
+ * @fileOverview A multi-agent flow to create a short story with a cover image and video trailer.
  *
- * - createStory - A function that orchestrates a writer and illustrator agent.
+ * - createStory - A function that orchestrates a writer, illustrator, and director agent.
  */
 
 import { ai } from '@/ai/genkit';
 import { googleAI } from '@genkit-ai/googleai';
 import { StoryCreatorInputSchema, StoryCreatorOutputSchema, type StoryCreatorInput, type StoryCreatorOutput } from '@/lib/schema';
+import { generateVideo } from './video-generation';
 
 export async function createStory(input: StoryCreatorInput): Promise<StoryCreatorOutput> {
     const storyCreatorFlow = ai.defineFlow(
@@ -39,6 +40,19 @@ Story:
 
 Image Generation Prompt:`
             });
+            
+            // Agent 3: The Director
+            const directorAgent = ai.definePrompt({
+                name: 'directorAgent',
+                prompt: `You are a film director. Create a short, dramatic prompt (around 15-20 words) for a video generation model. This prompt should capture the cinematic essence of the following short story. Focus on a key moment or the overall mood.
+
+Story:
+---
+{{{story}}}
+---
+
+Video Generation Prompt:`
+            });
 
             // Step 1: Writer agent creates the story.
             const storyResponse = await writerAgent({ prompt });
@@ -54,21 +68,37 @@ Image Generation Prompt:`
                 throw new Error("Illustrator agent failed to create an image prompt.");
             }
             
-            // Step 3: Generate the cover image.
-            const { media } = await ai.generate({
-                model: googleAI.model('imagen-4.0-fast-generate-001'),
-                prompt: imagePrompt,
-            });
+            // Step 3: Director agent creates a prompt for the video trailer.
+            const videoPromptResponse = await directorAgent({ story });
+            const videoPrompt = videoPromptResponse.text;
+             if (!videoPrompt) {
+                throw new Error("Director agent failed to create a video prompt.");
+            }
 
-            const imageUrl = media?.url;
+            // Step 4: Generate the cover image and video trailer in parallel.
+            const [imageResult, videoResult] = await Promise.all([
+                ai.generate({
+                    model: googleAI.model('imagen-4.0-fast-generate-001'),
+                    prompt: imagePrompt,
+                }),
+                generateVideo({ prompt: videoPrompt })
+            ]);
+
+            const imageUrl = imageResult.media?.url;
             if (!imageUrl) {
                 throw new Error("The image generation failed.");
             }
+            
+            const videoUrl = videoResult.videoUrl;
+            if (!videoUrl) {
+                throw new Error("The video generation failed.");
+            }
 
-            // Step 4: Return the final result.
+            // Step 5: Return the final result.
             return {
                 story,
                 imageUrl,
+                videoUrl,
             };
         }
     );

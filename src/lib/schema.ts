@@ -126,6 +126,7 @@ export type StoryCreatorInput = z.infer<typeof StoryCreatorInputSchema>;
 export const StoryCreatorOutputSchema = z.object({
   story: z.string().describe("The generated short story."),
   imageUrl: z.string().url().describe("The URL of the generated cover image."),
+  videoUrl: z.string().url().describe("The data URI of the generated video trailer."),
 });
 export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
 

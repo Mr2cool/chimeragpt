@@ -69,13 +69,13 @@ export const readmeQnaTool = ai.defineTool(
 export const storyCreatorTool = ai.defineTool(
     {
         name: 'storyCreatorTool',
-        description: 'Creates a short story with a cover image based on a user prompt.',
+        description: 'Creates a short story with a cover image and a video trailer based on a user prompt.',
         inputSchema: StoryCreatorInputSchema,
-        outputSchema: z.string().describe('A summary containing the story and the image URL.'),
+        outputSchema: z.string().describe('A summary containing the story, image URL, and confirmation of video generation.'),
     },
     async (input) => {
         const result = await createStory(input);
-        return `Story created. Image available at: ${result.imageUrl}\n\n${result.story}`;
+        return `Story created successfully. Image is available at: ${result.imageUrl}. A video trailer has also been generated.`;
     }
 );
 

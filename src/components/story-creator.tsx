@@ -11,7 +11,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Textarea } from '@/components/ui/textarea';
 import { Skeleton } from './ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
-import { AlertCircle, Bot } from 'lucide-react';
+import { AlertCircle, BookOpen, Clapperboard } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -46,11 +46,11 @@ export function StoryCreator() {
       <Card>
         <CardHeader>
           <CardTitle className="font-headline text-2xl flex items-center gap-2">
-            <Bot className="w-6 h-6 text-primary" />
-            Multi-Agent Story Creator
+            <BookOpen className="w-6 h-6 text-primary" />
+            Multi-Modal Story Weaver
           </CardTitle>
           <CardDescription>
-            Provide a simple prompt and let two AI agents—a writer and an illustrator—collaborate to create a short, illustrated story for you.
+            Provide a simple prompt and let a team of AI agents—a writer, an illustrator, and a director—collaborate to create a short story, a cover image, and a video trailer for you.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -77,7 +77,7 @@ export function StoryCreator() {
                 )}
               />
               <Button type="submit" disabled={isLoading}>
-                {isLoading ? 'Creating Story...' : 'Create Story'}
+                {isLoading ? 'Weaving Story...' : 'Create Story'}
               </Button>
             </form>
           </FormProvider>
@@ -89,13 +89,20 @@ export function StoryCreator() {
             <CardHeader>
                 <CardTitle className="font-headline text-2xl">Your Generated Story</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-                <Skeleton className="w-full h-64 rounded-lg" />
-                <div className="space-y-2 pt-4">
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-5/6" />
-                    <Skeleton className="h-4 w-3/4" />
+            <CardContent className="grid md:grid-cols-3 gap-6">
+                <div className="md:col-span-1">
+                    <Skeleton className="w-full aspect-square rounded-lg" />
+                </div>
+                <div className="md:col-span-2 space-y-4">
+                     <div className="space-y-2">
+                        <Skeleton className="h-4 w-full" />
+                        <Skeleton className="h-4 w-full" />
+                        <Skeleton className="h-4 w-5/6" />
+                    </div>
+                     <div>
+                        <h4 className="font-semibold text-lg font-headline flex items-center gap-2 mb-2"><Clapperboard className="w-5 h-5"/>Video Trailer</h4>
+                        <Skeleton className="w-full aspect-video rounded-lg" />
+                     </div>
                 </div>
             </CardContent>
         </Card>
@@ -115,20 +122,22 @@ export function StoryCreator() {
             <CardTitle className="font-headline text-2xl">Your Generated Story</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col md:flex-row gap-6">
-                <div className="w-full md:w-1/3">
+            <div className="grid md:grid-cols-3 gap-8">
+                <div className="w-full md:col-span-1 space-y-4">
                     <Image 
                         src={result.imageUrl}
                         alt="Generated story cover"
                         width={400}
                         height={400}
-                        className="rounded-lg object-cover aspect-square"
+                        className="rounded-lg object-cover aspect-square border"
                     />
-                </div>
-                <div className="w-full md:w-2/3">
-                     <article className="prose dark:prose-invert">
+                     <article className="prose dark:prose-invert text-sm">
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>{result.story}</ReactMarkdown>
                     </article>
+                </div>
+                <div className="w-full md:col-span-2">
+                    <h4 className="font-semibold text-lg font-headline flex items-center gap-2 mb-2"><Clapperboard className="w-5 h-5"/>Video Trailer</h4>
+                    <video controls autoPlay loop src={result.videoUrl} className="w-full rounded-lg border bg-background" />
                 </div>
             </div>
           </CardContent>
