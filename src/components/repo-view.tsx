@@ -9,15 +9,18 @@ import {
   SidebarGroupLabel,
   SidebarSeparator,
 } from '@/components/ui/sidebar';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { GitHubRepo, PackageJson } from '@/lib/types';
 import type { TreeNode } from '@/lib/tree';
 import { DirectoryTree } from './directory-tree';
 import { ReadmeDisplay } from './readme-display';
+import { RepoAnalysis } from './repo-analysis';
 import { DependencyList } from './dependency-list';
 import { Star, GitFork } from 'lucide-react';
 import { Button } from './ui/button';
 import { GithubIcon, Logo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { getFilePaths } from '@/lib/tree';
 
 interface RepoViewProps {
   repo: GitHubRepo;
@@ -27,6 +30,7 @@ interface RepoViewProps {
 }
 
 export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
+  const filePaths = getFilePaths(tree);
   return (
     <SidebarProvider>
       <div className="flex h-screen w-full">
@@ -83,11 +87,24 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                 </div>
             </header>
             <main className="flex-1 overflow-y-auto">
-                <ReadmeDisplay 
-                    readmeContent={readme} 
-                    repoDescription={repo.description || ''}
-                    repoUrl={repo.html_url}
-                />
+                <Tabs defaultValue="readme" className="h-full">
+                    <div className='sticky top-0 bg-background z-10 border-b'>
+                        <TabsList className="p-0 m-4 bg-transparent gap-4">
+                            <TabsTrigger value="readme" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">README</TabsTrigger>
+                            <TabsTrigger value="analysis" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Analysis</TabsTrigger>
+                        </TabsList>
+                    </div>
+                    <TabsContent value="readme" className="mt-0">
+                        <ReadmeDisplay 
+                            readmeContent={readme} 
+                            repoDescription={repo.description || ''}
+                            repoUrl={repo.html_url}
+                        />
+                    </TabsContent>
+                    <TabsContent value="analysis" className="mt-0">
+                        <RepoAnalysis filePaths={filePaths} repoDescription={repo.description || ''} />
+                    </TabsContent>
+                </Tabs>
             </main>
         </SidebarInset>
       </div>

@@ -40,3 +40,19 @@ export function buildTree(files: GitHubFile[]): TreeNode[] {
 
     return tree.children;
 }
+
+export function getFilePaths(nodes: TreeNode[]): string[] {
+    const paths: string[] = [];
+    function traverse(nodes: TreeNode[]) {
+        for (const node of nodes) {
+            if (node.type === 'blob') {
+                paths.push(node.path);
+            }
+            if (node.children.length > 0) {
+                traverse(node.children);
+            }
+        }
+    }
+    traverse(nodes);
+    return paths;
+}
