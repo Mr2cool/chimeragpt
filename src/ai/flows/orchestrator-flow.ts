@@ -33,7 +33,7 @@ export async function runOrchestrator(input: z.infer<typeof OrchestratorInputSch
 
             const orchestratorPrompt = ai.definePrompt({
                 name: 'orchestratorPrompt',
-                model: googleAI.model('gemini-2.5-flash-preview'),
+                model: googleAI.model('gemini-1.5-flash-latest'),
                 output: { schema: OrchestratorOutputSchema },
                 tools: [
                     appIdeationTool,

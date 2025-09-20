@@ -21,7 +21,7 @@ export async function enhanceReadme(input: EnhanceReadmeInput): Promise<EnhanceR
     async input => {
       const prompt = ai.definePrompt({
         name: 'readmeEnhancementPrompt',
-        model: googleAI.model('gemini-2.5-flash-preview'),
+        model: googleAI.model('gemini-1.5-flash-latest'),
         input: {schema: EnhanceReadmeInputSchema},
         output: {schema: EnhanceReadmeOutputSchema},
         prompt: `You are an AI assistant that enhances README files for GitHub repositories.

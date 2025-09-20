@@ -26,7 +26,7 @@ export async function createStory(input: StoryCreatorInput): Promise<StoryCreato
 Prompt: {{{prompt}}}
 
 The story should be suitable for all ages.`,
-                model: 'googleai/gemini-2.5-flash-preview',
+                model: googleAI.model('gemini-1.5-flash-latest'),
             });
 
             // Agent 2: The Illustrator
@@ -40,7 +40,7 @@ Story:
 ---
 
 Image Generation Prompt:`,
-                model: 'googleai/gemini-2.5-flash-preview',
+                model: googleAI.model('gemini-1.5-flash-latest'),
             });
             
             // Agent 3: The Director
@@ -54,7 +54,7 @@ Story:
 ---
 
 Video Generation Prompt:`,
-                model: 'googleai/gemini-2.5-flash-preview',
+                model: googleAI.model('gemini-1.5-flash-latest'),
             });
 
             // Step 1: Writer agent creates the story.

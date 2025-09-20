@@ -87,7 +87,7 @@ export async function performWebTask(input: WebTaskInput): Promise<WebTaskOutput
 
             const prompt = ai.definePrompt({
                 name: 'webTaskPrompt',
-                model: googleAI.model('gemini-2.5-flash-preview'),
+                model: googleAI.model('gemini-1.5-flash-latest'),
                 output: { schema: WebTaskOutputSchema },
                 tools: [webSearchTool, imageAnalysisTool],
                 prompt: `You are an advanced web agent. Your goal is to perform a task on a given webpage.

@@ -20,7 +20,7 @@ export async function generateAppIdeas(input: AppIdeationInput): Promise<AppIdea
             // Agent 1: The Analyst - Understands the source repository
             const analystAgent = ai.definePrompt({
                 name: 'analystAgent',
-                model: googleAI.model('gemini-2.5-flash-preview'),
+                model: googleAI.model('gemini-1.5-flash-latest'),
                 prompt: `You are a Senior Software Architect. Your job is to analyze a source repository to understand its core purpose, technology, and structure.
 
 Source Repository: {{repoName}}
@@ -37,7 +37,7 @@ Based on this, provide a concise, one-paragraph summary of the repository's arch
             // Agent 2: The Modernization Architect - Creates a detailed plan for modernization
             const architectAgent = ai.definePrompt({
                 name: 'architectAgent',
-                model: googleAI.model('gemini-2.5-flash-preview'),
+                model: googleAI.model('gemini-1.5-flash-latest'),
                 output: { schema: AppIdeationOutputSchema.shape.ideas.element },
                 prompt: `You are a Lead AI Engineer and Modernization Architect. Your task is to take the analysis of a legacy application and create a detailed modernization proposal.
 

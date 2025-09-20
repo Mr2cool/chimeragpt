@@ -19,7 +19,7 @@ export async function analyzeRepo(input: RepoAnalysisInput): Promise<RepoAnalysi
     async input => {
       const prompt = ai.definePrompt({
         name: 'repoAnalysisPrompt',
-        model: googleAI.model('gemini-2.5-flash-preview'),
+        model: googleAI.model('gemini-1.5-flash-latest'),
         input: {schema: RepoAnalysisInputSchema},
         output: {schema: RepoAnalysisOutputSchema},
         prompt: `You are an expert Code Auditor AI. Your task is to analyze a GitHub repository based on its file paths, dependencies, and description to identify potential issues.
