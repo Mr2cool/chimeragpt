@@ -97,7 +97,7 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                     <div className='sticky top-0 bg-background z-10 border-b'>
                         <TabsList className="p-0 m-4 bg-transparent gap-4">
                             <TabsTrigger value="readme" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">README</TabsTrigger>
-                            <TabsTrigger value="analysis" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Analysis</TabsTrigger>
+                            <TabsTrigger value="review" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Review</TabsTrigger>
                             <TabsTrigger value="ideation" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
                                 <WandSparkles className="w-4 h-4 mr-2"/>
                                 Ideation
@@ -125,7 +125,7 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                             repoUrl={repo.html_url}
                         />
                     </TabsContent>
-                    <TabsContent value="analysis" className="mt-0">
+                    <TabsContent value="review" className="mt-0">
                         <RepoAnalysis filePaths={filePaths} repoDescription={repo.description || ''} />
                     </TabsContent>
                     <TabsContent value="ideation" className="mt-0">
