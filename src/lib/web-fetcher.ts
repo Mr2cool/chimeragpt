@@ -46,7 +46,11 @@ export function extractImageUrls(htmlContent: string, baseUrl: string): string[]
 
 export async function fetchImageAsDataUri(imageUrl: string): Promise<string | null> {
     try {
-        const response = await fetch(imageUrl);
+        const response = await fetch(imageUrl, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            }
+        });
         if (!response.ok) {
             console.error(`Failed to fetch image: ${imageUrl}, status: ${response.status}`);
             return null;
