@@ -1,4 +1,5 @@
 import { ai } from '@/ai/genkit';
+import { googleAI } from '@genkit-ai/googleai';
 import { z } from 'zod';
 
 /**
@@ -56,6 +57,7 @@ export class AIAgent {
 
     const prompt = ai.definePrompt({
         name: `${this.name.toLowerCase().replace(' ', '-')}-prompt`,
+        model: googleAI.model('gemini-2.5-flash-preview'),
         prompt: `You are ${this.name}, a specialized AI agent with the role: "${this.role}".
 Your task is: "${task}".
 
