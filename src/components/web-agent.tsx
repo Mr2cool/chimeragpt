@@ -25,7 +25,7 @@ export function WebAgent() {
     resolver: zodResolver(WebTaskInputSchema),
     defaultValues: {
       url: 'https://en.wikipedia.org/wiki/React_(software)',
-      task: 'Summarize the history of this framework.',
+      task: 'Resume la historia de este framework.',
     },
   });
 
@@ -49,10 +49,10 @@ export function WebAgent() {
         <CardHeader>
           <CardTitle className="font-headline text-2xl flex items-center gap-2">
             <Globe className="w-6 h-6 text-primary" />
-            Multimodal Web Agent
+            Multilingual Web Agent
           </CardTitle>
           <CardDescription>
-            Provide a URL and a task. The agent will visit the webpage, analyze its content (including images), and use web search if needed to complete your request.
+            Provide a URL and a task in any language. The agent will visit the webpage, analyze its content (including images), and use web search if needed to complete your request. It can even translate your task to understand it better.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -82,7 +82,7 @@ export function WebAgent() {
                 name="task"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Task Description</FormLabel>
+                    <FormLabel>Task Description (Any Language)</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="e.g., Summarize the main points of the article."

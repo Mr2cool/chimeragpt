@@ -60,6 +60,23 @@ const imageAnalysisTool = ai.defineTool(
     }
 );
 
+// Tool to self-translate non-English text to English
+const selfTranslateTool = ai.defineTool(
+    {
+        name: 'selfTranslate',
+        description: 'Translates a given text into English. Use this if the user task is in a language other than English to ensure better understanding.',
+        inputSchema: z.object({ text: z.string().describe('The non-English text to translate.') }),
+        outputSchema: z.string().describe('The translated English text.'),
+    },
+    async(input) => {
+        const { output } = await ai.generate({
+            prompt: `Translate the following text to English: "${input.text}"`,
+        });
+        return output || "Translation failed.";
+    }
+);
+
+
 export async function performWebTask(input: WebTaskInput): Promise<WebTaskOutput> {
     const webTaskFlow = ai.defineFlow(
         {
@@ -85,12 +102,13 @@ export async function performWebTask(input: WebTaskInput): Promise<WebTaskOutput
             const prompt = ai.definePrompt({
                 name: 'webTaskPrompt',
                 output: { schema: WebTaskOutputSchema },
-                tools: [webSearchTool, imageAnalysisTool],
+                tools: [webSearchTool, imageAnalysisTool, selfTranslateTool],
                 prompt: `You are an advanced multimodal web agent. Your task is to analyze the content of a webpage and perform a user-defined task.
 
 You have access to tools that can help you:
-1. 'webSearch': If the provided webpage content is not enough to answer the user's request, use this tool to search the web for additional information.
-2. 'analyzeImage': If the page contains images relevant to the task, use this tool to "see" and understand their content.
+1. 'selfTranslate': If the user's task is in a language other than English, you MUST use this tool first to translate the task to English before proceeding.
+2. 'webSearch': If the provided webpage content is not enough to answer the user's request, use this tool to search the web for additional information.
+3. 'analyzeImage': If the page contains images relevant to the task, use this tool to "see" and understand their content.
 
 **User's Task:**
 {{{task}}}
@@ -110,7 +128,8 @@ You have access to tools that can help you:
 {{/each}}
 {{/if}}
 
-First, analyze the content of the page. If it is sufficient, perform the task.
+First, check the language of the user's task. If it's not in English, use the 'selfTranslate' tool.
+Next, analyze the content of the page. If it is sufficient, perform the task.
 If the content is not sufficient, use the 'webSearch' tool to gather more information.
 If there are relevant images, use the 'analyzeImage' tool to understand them.
 Finally, perform the task and provide the result in a clear, well-structured markdown format. When using tools, briefly mention that you are doing so.
