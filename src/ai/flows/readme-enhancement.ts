@@ -5,24 +5,10 @@
  * @fileOverview A flow to enhance a README file by adding a short, friendly introduction based on the repository's metadata.
  *
  * - enhanceReadme - A function that enhances the README content with an AI-generated introduction.
- * - EnhanceReadmeInput - The input type for the enhanceReadme function.
- * - EnhanceReadmeOutput - The return type for the enhanceReadme function.
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
-
-const EnhanceReadmeInputSchema = z.object({
-  repoDescription: z.string().describe('The description of the GitHub repository.'),
-  readmeContent: z.string().describe('The content of the README.md file.'),
-  repoUrl: z.string().describe('The URL of the GitHub repository.'),
-});
-export type EnhanceReadmeInput = z.infer<typeof EnhanceReadmeInputSchema>;
-
-const EnhanceReadmeOutputSchema = z.object({
-  enhancedReadme: z.string().describe('The enhanced README content with the AI-generated introduction.'),
-});
-export type EnhanceReadmeOutput = z.infer<typeof EnhanceReadmeOutputSchema>;
+import { EnhanceReadmeInputSchema, EnhanceReadmeOutputSchema, type EnhanceReadmeInput, type EnhanceReadmeOutput } from '@/lib/schema';
 
 export async function enhanceReadme(input: EnhanceReadmeInput): Promise<EnhanceReadmeOutput> {
   return enhanceReadmeFlow(input);
@@ -58,4 +44,3 @@ const enhanceReadmeFlow = ai.defineFlow(
     };
   }
 );
-

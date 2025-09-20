@@ -15,6 +15,7 @@ import type { TreeNode } from '@/lib/tree';
 import { DirectoryTree } from './directory-tree';
 import { ReadmeDisplay } from './readme-display';
 import { RepoAnalysis } from './repo-analysis';
+import { FrameworkDesigner } from './framework-designer';
 import { DependencyList } from './dependency-list';
 import { Star, GitFork } from 'lucide-react';
 import { Button } from './ui/button';
@@ -92,6 +93,7 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                         <TabsList className="p-0 m-4 bg-transparent gap-4">
                             <TabsTrigger value="readme" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">README</TabsTrigger>
                             <TabsTrigger value="analysis" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Analysis</TabsTrigger>
+                            <TabsTrigger value="designer" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Designer</TabsTrigger>
                         </TabsList>
                     </div>
                     <TabsContent value="readme" className="mt-0">
@@ -103,6 +105,9 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                     </TabsContent>
                     <TabsContent value="analysis" className="mt-0">
                         <RepoAnalysis filePaths={filePaths} repoDescription={repo.description || ''} />
+                    </TabsContent>
+                    <TabsContent value="designer" className="mt-0">
+                        <FrameworkDesigner />
                     </TabsContent>
                 </Tabs>
             </main>

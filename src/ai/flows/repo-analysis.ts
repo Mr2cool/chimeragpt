@@ -3,28 +3,10 @@
  * @fileOverview A flow to analyze a GitHub repository based on its file structure.
  *
  * - analyzeRepo - A function that analyzes the repository files and provides a summary.
- * - RepoAnalysisInput - The input type for the analyzeRepo function.
- * - RepoAnalysisOutput - The return type for the analyzeRepo function.
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
-
-const RepoAnalysisInputSchema = z.object({
-  filePaths: z.array(z.string()).describe('A list of all file paths in the repository.'),
-  repoDescription: z.string().describe('The description of the GitHub repository.'),
-});
-export type RepoAnalysisInput = z.infer<typeof RepoAnalysisInputSchema>;
-
-const RepoAnalysisOutputSchema = z.object({
-  technologies: z.array(z.string()).describe('A list of languages, frameworks, and key libraries identified in the repository.'),
-  summary: z.string().describe('A summary of the project\'s likely purpose and architecture based on its file structure.'),
-  frameworkSuggestions: z.array(z.object({
-    name: z.string().describe('The name of the suggested AI agent framework.'),
-    reason: z.string().describe('The reason why this framework is suggested for the repository.'),
-  })).describe('A list of suggested AI agent frameworks that might be relevant for this repository.'),
-});
-export type RepoAnalysisOutput = z.infer<typeof RepoAnalysisOutputSchema>;
+import { RepoAnalysisInputSchema, RepoAnalysisOutputSchema, type RepoAnalysisInput, type RepoAnalysisOutput } from '@/lib/schema';
 
 export async function analyzeRepo(input: RepoAnalysisInput): Promise<RepoAnalysisOutput> {
   return repoAnalysisFlow(input);
