@@ -34,7 +34,7 @@ export function RepoInputForm({ error, initialValue = "https://github.com/google
         </div>
         <CardTitle className="font-headline text-3xl">The Chimera Framework</CardTitle>
         <CardDescription>
-          Enter a source GitHub repository URL. The framework will analyze it to inspire and generate new, detailed application proposals.
+          Analyze a legacy GitHub repository to generate a detailed modernization plan for your SDLC.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -47,11 +47,11 @@ export function RepoInputForm({ error, initialValue = "https://github.com/google
         )}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="repo-url">Source Repository URL</Label>
+            <Label htmlFor="repo-url">Legacy Repository URL</Label>
             <Input
               id="repo-url"
               type="text"
-              placeholder="e.g., https://github.com/google/genkit"
+              placeholder="e.g., https://github.com/owner/legacy-app"
               value={repoUrl}
               onChange={(e) => setRepoUrl(e.target.value)}
               required
@@ -59,12 +59,12 @@ export function RepoInputForm({ error, initialValue = "https://github.com/google
           </div>
           <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
             <GithubIcon className="mr-2 h-4 w-4" />
-            Start Ideation
+            Analyze Repository
           </Button>
         </form>
       </CardContent>
       <CardFooter className="text-center flex-col items-center">
-          <p className="text-xs text-muted-foreground">A multi-agent framework for application development.</p>
+          <p className="text-xs text-muted-foreground">A multi-agent framework for application modernization.</p>
       </CardFooter>
     </Card>
   );

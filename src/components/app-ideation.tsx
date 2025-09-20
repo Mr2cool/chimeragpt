@@ -7,8 +7,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Skeleton } from './ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import { AlertCircle, Cpu, ListTodo, WandSparkles, Code } from 'lucide-react';
-import { Slider } from './ui/slider';
-import { Label } from './ui/label';
 import { Badge } from './ui/badge';
 
 interface AppIdeationProps {
@@ -23,7 +21,6 @@ export function AppIdeation({ repo }: AppIdeationProps) {
   const [result, setResult] = React.useState<AppIdeationOutput | null>(null);
   const [error, setError] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [numIdeas, setNumIdeas] = React.useState(3);
 
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -34,7 +31,6 @@ export function AppIdeation({ repo }: AppIdeationProps) {
         repoName: repo.name,
         repoDescription: repo.description,
         filePaths: repo.filePaths,
-        numIdeas,
       };
       const response = await generateAppIdeas(input);
       setResult(response);
@@ -51,37 +47,24 @@ export function AppIdeation({ repo }: AppIdeationProps) {
         <CardHeader>
           <CardTitle className="font-headline text-2xl flex items-center gap-2">
             <WandSparkles className="w-6 h-6 text-primary" />
-            AI-Powered App Ideation
+            Repository Modernization Plan
           </CardTitle>
           <CardDescription>
-            Use the slider to choose how many new application ideas to generate based on the current repository. A multi-agent system will then analyze the repo, brainstorm concepts, and create a detailed plan for each.
+            Click the button to generate a modernization plan for this repository. A multi-agent system will analyze the codebase and propose a detailed plan for upgrading and enhancing it.
           </CardDescription>
         </CardHeader>
         <CardContent>
             <div className="space-y-4">
-                 <div className="space-y-2">
-                    <Label htmlFor="num-ideas">Number of Ideas ({numIdeas})</Label>
-                     <Slider
-                        id="num-ideas"
-                        min={1}
-                        max={5}
-                        step={1}
-                        value={[numIdeas]}
-                        onValueChange={(value) => setNumIdeas(value[0])}
-                        disabled={isLoading}
-                      />
-                </div>
                  <Button onClick={handleSubmit} disabled={isLoading}>
-                    {isLoading ? 'Generating Ideas...' : 'Generate App Ideas'}
+                    {isLoading ? 'Generating Plan...' : 'Generate Modernization Plan'}
                 </Button>
             </div>
         </CardContent>
       </Card>
       
       {isLoading && (
-         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[...Array(numIdeas)].map((_, i) => (
-                <Card key={i}>
+         <div className="grid gap-8 md:grid-cols-1">
+                <Card>
                     <CardHeader>
                         <Skeleton className="h-6 w-3/4" />
                         <Skeleton className="h-4 w-1/2 mt-1" />
@@ -115,7 +98,6 @@ export function AppIdeation({ repo }: AppIdeationProps) {
                         </div>
                     </CardFooter>
                 </Card>
-            ))}
         </div>
       )}
 
@@ -128,7 +110,7 @@ export function AppIdeation({ repo }: AppIdeationProps) {
       )}
 
       {result && (
-        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-1">
           {result.ideas.map((idea, index) => (
             <Card key={index} className="flex flex-col">
               <CardHeader>
@@ -138,14 +120,14 @@ export function AppIdeation({ repo }: AppIdeationProps) {
                 <p className="text-sm text-muted-foreground">{idea.description}</p>
                 
                 <div>
-                  <h4 className="font-semibold text-sm mb-2 flex items-center gap-2"><Code className="w-4 h-4"/>Tech Stack</h4>
+                  <h4 className="font-semibold text-sm mb-2 flex items-center gap-2"><Code className="w-4 h-4"/>Suggested Tech Stack</h4>
                   <div className="flex flex-wrap gap-2">
                     {idea.techStack.map(tech => <Badge key={tech} variant="secondary">{tech}</Badge>)}
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-sm mb-2 flex items-center gap-2"><Cpu className="w-4 h-4"/>AI Agents</h4>
+                  <h4 className="font-semibold text-sm mb-2 flex items-center gap-2"><Cpu className="w-4 h-4"/>New AI Agents to Integrate</h4>
                   <div className="space-y-3 text-sm">
                     {idea.agents.map(agent => (
                       <div key={agent.name}>
@@ -157,7 +139,7 @@ export function AppIdeation({ repo }: AppIdeationProps) {
                 </div>
               </CardContent>
               <CardFooter className="flex-col items-start p-6 bg-muted/50 dark:bg-muted/20 mt-auto">
-                <h4 className="font-semibold text-sm mb-2 flex items-center gap-2"><ListTodo className="w-4 h-4"/>To-Do List</h4>
+                <h4 className="font-semibold text-sm mb-2 flex items-center gap-2"><ListTodo className="w-4 h-4"/>Modernization To-Do List</h4>
                 <ul className="list-disc pl-5 space-y-1.5 text-sm text-muted-foreground">
                   {idea.todoList.map((task, i) => <li key={i}>{task}</li>)}
                 </ul>

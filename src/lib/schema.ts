@@ -77,25 +77,24 @@ export const AppIdeationInputSchema = z.object({
   repoName: z.string().describe("The name of the source repository."),
   repoDescription: z.string().describe("The description of the source repository."),
   filePaths: z.array(z.string()).describe("The list of file paths from the source repository."),
-  numIdeas: z.number().int().min(1).max(5).describe("The number of new application ideas to generate."),
 });
 export type AppIdeationInput = z.infer<typeof AppIdeationInputSchema>;
 
 export const AppIdeationOutputSchema = z.object({
   ideas: z.array(
     z.object({
-      name: z.string().describe("The name of the application idea."),
-      description: z.string().describe("A detailed one-paragraph description of the application."),
-      techStack: z.array(z.string()).describe("A list of recommended technologies."),
+      name: z.string().describe("The name of the modernization plan."),
+      description: z.string().describe("A detailed one-paragraph description of the proposed modernization."),
+      techStack: z.array(z.string()).describe("A list of recommended technologies for the upgrade."),
       agents: z.array(
         z.object({
-          name: z.string().describe("The name of the AI agent."),
-          description: z.string().describe("The description of the AI agent's role."),
+          name: z.string().describe("The name of a new AI agent to integrate."),
+          description: z.string().describe("The description of the new AI agent's role."),
         })
-      ).describe("A list of required AI agents."),
-      todoList: z.array(z.string()).describe("A list of actionable to-do items."),
+      ).describe("A list of new AI agents that could be integrated into the modernized application."),
+      todoList: z.array(z.string()).describe("A high-level list of actionable to-do items for the modernization project."),
     })
-  ).describe("A list of generated application ideas with their detailed plans."),
+  ).describe("A list of generated modernization plans."),
 });
 export type AppIdeationOutput = z.infer<typeof AppIdeationOutputSchema>;
 
