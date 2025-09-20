@@ -22,7 +22,7 @@ export function RepoInputForm({ error, initialValue = "https://github.com/google
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (repoUrl) {
-      router.push(`/?repo=${encodeURIComponent(repoUrl)}`);
+      router.push(`/repo?repo=${encodeURIComponent(repoUrl)}`);
     }
   };
 

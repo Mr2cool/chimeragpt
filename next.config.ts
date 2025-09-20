@@ -35,6 +35,18 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '4.5mb',
     },
   },
+  async rewrites() {
+    return [
+      {
+        source: '/repo',
+        destination: '/repo',
+      },
+      {
+        source: '/:path*',
+        destination: '/',
+      },
+    ]
+  },
 };
 
 export default nextConfig;

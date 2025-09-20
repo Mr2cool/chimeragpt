@@ -146,3 +146,15 @@ export const ConversationOutputSchema = z.object({
   ).describe("The full conversation history between the two agents."),
 });
 export type ConversationOutput = z.infer<typeof ConversationOutputSchema>;
+
+
+// Schema for src/ai/flows/orchestrator-flow.ts
+export const OrchestratorInputSchema = z.object({
+    goal: z.string().min(10, { message: "Goal must be at least 10 characters."}).describe('The high-level goal for the orchestrator to achieve.'),
+});
+export type OrchestratorInput = z.infer<typeof OrchestratorInputSchema>;
+
+export const OrchestratorOutputSchema = z.object({
+    result: z.string().describe('The final result or summary of the orchestrated task execution.'),
+});
+export type OrchestratorOutput = z.infer<typeof OrchestratorOutputSchema>;
