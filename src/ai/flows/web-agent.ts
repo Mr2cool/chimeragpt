@@ -9,6 +9,7 @@ import { WebTaskInputSchema, WebTaskOutputSchema, type WebTaskInput, type WebTas
 import { fetchUrlContent, extractImageUrls, fetchImageAsDataUri } from '@/lib/web-fetcher';
 import { z } from 'zod';
 import { searchGoogle } from '@/lib/search';
+import { googleAI } from '@genkit-ai/googleai';
 
 // Tool to perform a web search
 const webSearchTool = ai.defineTool(
@@ -45,7 +46,7 @@ const imageAnalysisTool = ai.defineTool(
             if (!dataUri) return "Failed to fetch image.";
 
             const { text } = await ai.generate({
-                model: 'googleai/gemini-pro-vision',
+                model: googleAI.model('gemini-pro-vision'),
                 prompt: [{
                     media: { url: dataUri }
                 }, {
