@@ -99,7 +99,8 @@ export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
 
 // Schema for src/ai/flows/conversation-flow.ts
 export const ConversationInputSchema = z.object({
-  topic: z.string().min(5).describe('The topic for the AI agents to discuss.'),
+  topic: z.string().min(5, "Topic must be at least 5 characters.").describe('The topic for the AI agents to discuss.'),
+  numTurns: z.number().min(1).max(5).describe('The number of conversational turns per agent.'),
 });
 export type ConversationInput = z.infer<typeof ConversationInputSchema>;
 

@@ -1,6 +1,6 @@
 'use server';
 /**
- * @fileOverview A multi-agent flow where two AI agents discuss a given topic.
+ * @fileOverview A multi-agent flow where two AI agents discuss a given topic for a specified number of turns.
  *
  * - startConversation - A function that orchestrates a conversation between a "Pragmatist" and a "Creative" agent.
  */
@@ -15,12 +15,14 @@ const pragmatistAgent = ai.definePrompt({
 
 You are discussing the following topic with another AI: {{{topic}}}
 
-The other AI has just said:
+The full conversation history so far is:
 ---
 {{{history}}}
 ---
 
-Provide your response to continue the conversation.`,
+The other AI has just said: "{{{lastMessage}}}"
+
+Provide your response to continue the conversation. Keep your response focused and to the point.`,
 });
 
 // Agent 2: The Creative
@@ -30,12 +32,14 @@ const creativeAgent = ai.definePrompt({
 
 You are discussing the following topic with another AI: {{{topic}}}
 
-The other AI has just said:
+The full conversation history so far is:
 ---
 {{{history}}}
 ---
 
-Provide your response to continue the conversation.`,
+The other AI has just said: "{{{lastMessage}}}"
+
+Provide your response to continue the conversation. Feel free to be expressive and introduce new angles.`,
 });
 
 
@@ -48,27 +52,33 @@ export async function startConversation(input: ConversationInput): Promise<Conve
         },
         async (input) => {
             const conversation: ConversationOutput['conversation'] = [];
-            let currentHistory = "The discussion is just beginning. Start the conversation with your perspective.";
+            let lastMessage = "The discussion is just beginning. Start the conversation with your perspective.";
+            let fullHistory = "";
+            let currentAgent: 'Creative' | 'Pragmatist' = 'Creative'; 
 
-            // Turn 1: Creative Agent starts
-            const creativeResponse1 = await creativeAgent({ topic: input.topic, history: currentHistory });
-            const creativeText1 = creativeResponse1.text;
-            if (!creativeText1) throw new Error("Creative agent failed to respond.");
-            conversation.push({ agent: 'Creative', text: creativeText1 });
-            currentHistory = creativeText1;
+            for (let i = 0; i < input.numTurns * 2; i++) {
+                const agentPrompt = currentAgent === 'Creative' ? creativeAgent : pragmatistAgent;
+                
+                const response = await agentPrompt({ 
+                    topic: input.topic, 
+                    history: fullHistory,
+                    lastMessage: lastMessage
+                });
 
-            // Turn 2: Pragmatist Agent responds
-            const pragmatistResponse1 = await pragmatistAgent({ topic: input.topic, history: currentHistory });
-            const pragmatistText1 = pragmatistResponse1.text;
-            if (!pragmatistText1) throw new Error("Pragmatist agent failed to respond.");
-            conversation.push({ agent: 'Pragmatist', text: pragmatistText1 });
-            currentHistory = pragmatistText1;
+                const responseText = response.text;
+                if (!responseText) {
+                    throw new Error(`${currentAgent} agent failed to respond.`);
+                }
 
-            // Turn 3: Creative Agent responds again
-            const creativeResponse2 = await creativeAgent({ topic: input.topic, history: currentHistory });
-            const creativeText2 = creativeResponse2.text;
-            if (!creativeText2) throw new Error("Creative agent failed to respond.");
-            conversation.push({ agent: 'Creative', text: creativeText2 });
+                const newEntry = { agent: currentAgent, text: responseText };
+                conversation.push(newEntry);
+                
+                fullHistory += `${currentAgent}: ${responseText}\n`;
+                lastMessage = responseText;
+                
+                // Switch agents for the next turn
+                currentAgent = currentAgent === 'Creative' ? 'Pragmatist' : 'Creative';
+            }
             
             return {
                 conversation,

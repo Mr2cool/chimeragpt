@@ -10,11 +10,12 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Textarea } from '@/components/ui/textarea';
 import { Skeleton } from './ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
-import { AlertCircle, MessageSquare, Bot } from 'lucide-react';
+import { AlertCircle, MessageSquare } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from './ui/avatar';
+import { Slider } from './ui/slider';
 
 export function ConversationStarter() {
   const [result, setResult] = React.useState<ConversationOutput['conversation'] | null>(null);
@@ -25,6 +26,7 @@ export function ConversationStarter() {
     resolver: zodResolver(ConversationInputSchema),
     defaultValues: {
       topic: '',
+      numTurns: 2,
     },
   });
 
@@ -56,7 +58,7 @@ export function ConversationStarter() {
         </CardHeader>
         <CardContent>
           <FormProvider {...form}>
-            <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
                 name="topic"
@@ -77,6 +79,29 @@ export function ConversationStarter() {
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name="numTurns"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Number of Turns ({field.value})</FormLabel>
+                    <FormControl>
+                      <Slider
+                        min={1}
+                        max={5}
+                        step={1}
+                        value={[field.value]}
+                        onValueChange={(value) => field.onChange(value[0])}
+                      />
+                    </FormControl>
+                     <FormDescription>
+                      Each turn consists of one response from each agent.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
               <Button type="submit" disabled={isLoading}>
                 {isLoading ? 'Thinking...' : 'Start Conversation'}
               </Button>
