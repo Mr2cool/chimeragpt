@@ -25,14 +25,15 @@ class WriteStoryAction extends BaseAction {
   async execute(prompt: string): Promise<string> {
     const writerPrompt = ai.definePrompt({
         name: 'storyWriterActionPrompt',
+        output: { schema: z.string() },
         prompt: `You are a talented short story writer. Write a simple, imaginative, and engaging short story (around 150-200 words) based on the following prompt:
 
-Prompt: ${prompt}
+Prompt: {{{prompt}}}
 
 The story should be suitable for all ages.`
     });
-    const { text } = await writerPrompt({ prompt });
-    return text();
+    const { output } = await writerPrompt({ prompt });
+    return output!;
   }
 }
 
@@ -45,17 +46,18 @@ class CreateImagePromptAction extends BaseAction {
   async execute(story: string): Promise<string> {
     const illustratorPrompt = ai.definePrompt({
         name: 'storyIllustratorActionPrompt',
+        output: { schema: z.string() },
         prompt: `You are a digital artist. Create a single, compelling prompt (around 20-30 words) for an image generation model. This prompt should visually summarize the following short story. Focus on creating a vibrant, slightly whimsical, and beautiful book cover illustration.
 
 Story:
 ---
-${story}
+{{{story}}}
 ---
 
 Image Generation Prompt:`
     });
-    const { text } = await illustratorPrompt({ story });
-    return text();
+    const { output } = await illustratorPrompt({ story });
+    return output!;
   }
 }
 
@@ -73,23 +75,28 @@ export async function createStory(input: StoryCreatorInput): Promise<StoryCreato
             const writerAgent = new AIAgent('WriterAgent', 'Writes short stories.', [new WriteStoryAction()]);
             const illustratorAgent = new AIAgent('IllustratorAgent', 'Creates image prompts from stories.', [new CreateImagePromptAction()]);
 
-            // 2. Define the Manager Agent and its team
-            const managerAgent = new ManagerAgent('StoryManager', 'Manages a team to create an illustrated story.', [writerAgent, illustratorAgent]);
+            // 2. Define the Manager Agent and its team of specialists.
+            const manager = new ManagerAgent('StoryManager', 'Manages a team to create a story with a cover image.', [writerAgent, illustratorAgent]);
+            
+            // 3. The Manager orchestrates the process by delegating tasks.
+            // Note: In a real-world scenario, the manager would use an LLM to decide which agent to call.
+            // For this focused example, we orchestrate the calls directly to show the hierarchical structure.
 
-            // 3. The Manager orchestrates the process
             // Step 1: Manager asks the WriterAgent to write a story.
-            const story = await managerAgent.actions[0].execute(prompt);
+            const story = await (manager.actions.find(a => a.name === 'WriterAgent')!.execute(prompt));
+
             if (!story || typeof story !== 'string') {
                 throw new Error("Writer agent failed to produce a story.");
             }
 
-            // Step 2: Manager asks the IllustratorAgent to create a prompt.
-            const imagePrompt = await managerAgent.actions[1].execute(story);
+            // Step 2: Manager asks the IllustratorAgent to create a prompt based on the story.
+            const imagePrompt = await (manager.actions.find(a => a.name === 'IllustratorAgent')!.execute(story));
+
             if (!imagePrompt || typeof imagePrompt !== 'string') {
                 throw new Error("Illustrator agent failed to produce an image prompt.");
             }
             
-            // Step 3: The flow (or the manager) uses the generated prompt to create an image.
+            // Step 3: The flow uses the generated prompt to create an image.
             const { media } = await ai.generate({
                 model: googleAI.model('imagen-4.0-fast-generate-001'),
                 prompt: imagePrompt,

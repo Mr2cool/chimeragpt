@@ -1,5 +1,4 @@
 // src/lib/agents.ts
-
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
 
@@ -74,8 +73,8 @@ Based on the task and history, decide which action to take next.
 Respond with the name of the action and the input for it in a single line, like this: "ActionName: input value".`,
     });
 
-    const { text } = await prompt();
-    const [actionName, ...inputParts] = text().split(':');
+    const response = await prompt();
+    const [actionName, ...inputParts] = response.text.split(':');
     const input = inputParts.join(':').trim();
 
     this.memory.add(`Agent Thought: I will use the ${actionName} tool.`);
@@ -93,7 +92,7 @@ Respond with the name of the action and the input for it in a single line, like 
     }
     
     try {
-        const parsedInput = action.inputSchema.parse(input);
+        const parsedInput = await action.inputSchema.parseAsync(input);
         const output = await action.execute(parsedInput);
         const observation = `Observation: ${JSON.stringify(output)}`;
         this.memory.add(observation);
@@ -112,17 +111,19 @@ Respond with the name of the action and the input for it in a single line, like 
  * It decomposes a task and delegates sub-tasks to its team members.
  */
 export class ManagerAgent extends AIAgent {
-    public team: AIAIAgent[];
+    public team: AIAgent[];
 
-    constructor(name: string, role: string, team: AIAgent[]) {
+    constructor(name: string, role: string, team: AIAIAgent[]) {
         // The manager's "actions" are its team members.
-        const teamAsActions = team.map(agent => ({
-            name: agent.name,
-            description: `Delegate a sub-task to this agent. Role: ${agent.role}`,
-            inputSchema: z.string(),
-            outputSchema: z.string(),
-            execute: (subTask: string) => agent.run(subTask),
-        }));
+        const teamAsActions = team.map(agent => new (class extends BaseAction {
+            name = agent.name;
+            description = `Delegate a sub-task to this agent. Role: ${agent.role}`;
+            inputSchema = z.string();
+            outputSchema = z.string();
+            async execute(subTask: string): Promise<string> {
+                return agent.run(subTask);
+            }
+        })());
 
         super(name, role, teamAsActions);
         this.team = team;
