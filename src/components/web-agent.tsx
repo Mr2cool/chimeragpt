@@ -26,7 +26,7 @@ export function WebAgent() {
     defaultValues: {
       url: 'https://en.wikipedia.org/wiki/React_(software)',
       task: 'Summarize the history of this framework. Then, perform a web search to find out what the latest stable version is and who the original author was.',
-      userData: `My name is John Doe, I live at 123 Main St, and I am a software engineer. My manager asked me to research the history of React for a presentation. I need a summary of its key milestones.`
+      userData: `My name is John Doe, I live at 123 Main St, and I am a software engineer. My manager asked me to research the history of React for a presentation. I need a summary of its key milestones.`,
     },
   });
 
