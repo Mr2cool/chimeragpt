@@ -72,70 +72,72 @@ export const GenerateVideoOutputSchema = z.object({
 export type GenerateVideoOutput = z.infer<typeof GenerateVideoOutputSchema>;
 
 
-// Schema for src/ai/flows/readme-qna.ts
-export const ReadmeQnaInputSchema = z.object({
-  readmeContent: z.string().describe('The content of the README.md file.'),
-  question: z.string().describe('The user\'s question about the README content.'),
-});
-export type ReadmeQnaInput = z.infer<typeof ReadmeQnaInputSchema>;
-
-export const ReadmeQnaOutputSchema = z.object({
-  answer: z.string().describe('The answer to the user\'s question, formatted in markdown.'),
-});
-export type ReadmeQnaOutput = z.infer<typeof ReadmeQnaOutputSchema>;
-
-// Schema for src/ai/flows/story-creator.ts
-export const StoryCreatorInputSchema = z.object({
-    prompt: z.string().min(10).describe('The user\'s prompt for the story.'),
-});
-export type StoryCreatorInput = z.infer<typeof StoryCreatorInputSchema>;
-
-export const StoryCreatorOutputSchema = z.object({
-    story: z.string().describe('The generated story text.'),
-    imageUrl: z.string().describe('The data URI of the generated cover image.'),
-});
-export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
-
-
-// Schema for src/ai/flows/conversation-flow.ts
-export const ConversationInputSchema = z.object({
-  topic: z.string().min(5, "Topic must be at least 5 characters.").describe('The topic for the AI agents to discuss.'),
-  numTurns: z.number().min(1).max(5).describe('The number of conversational turns per agent.'),
-});
-export type ConversationInput = z.infer<typeof ConversationInputSchema>;
-
-export const ConversationOutputSchema = z.object({
-  conversation: z.array(z.object({
-    agent: z.enum(['Pragmatist', 'Creative']),
-    text: z.string(),
-  })).describe('The structured conversation between the two agents.'),
-});
-export type ConversationOutput = z.infer<typeof ConversationOutputSchema>;
-
-
 // Schema for src/ai/flows/app-ideation.ts
 export const AppIdeationInputSchema = z.object({
-  repoName: z.string().describe('The name of the source repository.'),
-  repoDescription: z.string().describe('The description of the source repository.'),
-  filePaths: z.array(z.string()).describe('The file paths from the source repository.'),
-  numIdeas: z.number().min(1).max(5).describe('The number of new application ideas to generate.'),
+  repoName: z.string().describe("The name of the source repository."),
+  repoDescription: z.string().describe("The description of the source repository."),
+  filePaths: z.array(z.string()).describe("The list of file paths from the source repository."),
+  numIdeas: z.number().int().min(1).max(5).describe("The number of new application ideas to generate."),
 });
 export type AppIdeationInput = z.infer<typeof AppIdeationInputSchema>;
 
 export const AppIdeationOutputSchema = z.object({
   ideas: z.array(
     z.object({
-      name: z.string().describe('A creative and fitting name for the new application.'),
-      description: z.string().describe('A one-paragraph description of what the new application does.'),
-      techStack: z.array(z.string()).describe('A list of recommended technologies (languages, frameworks, libraries).'),
+      name: z.string().describe("The name of the application idea."),
+      description: z.string().describe("A detailed one-paragraph description of the application."),
+      techStack: z.array(z.string()).describe("A list of recommended technologies."),
       agents: z.array(
         z.object({
-          name: z.string().describe('The name of the AI agent (e.g., "CodeGeneratorAgent").'),
-          description: z.string().describe('A brief description of the agent\'s role and responsibilities.'),
+          name: z.string().describe("The name of the AI agent."),
+          description: z.string().describe("The description of the AI agent's role."),
         })
-      ).describe('A list of AI agents required for the application.'),
-      todoList: z.array(z.string()).describe('A high-level TODO list of tasks to build the application.'),
+      ).describe("A list of required AI agents."),
+      todoList: z.array(z.string()).describe("A list of actionable to-do items."),
     })
-  ).describe('A list of generated application ideas.'),
+  ).describe("A list of generated application ideas with their detailed plans."),
 });
 export type AppIdeationOutput = z.infer<typeof AppIdeationOutputSchema>;
+
+
+// Schema for src/ai/flows/conversation-flow.ts
+export const ConversationInputSchema = z.object({
+  topic: z.string().min(5, "Topic must be at least 5 characters.").describe("The topic for the AI agents to discuss."),
+  numTurns: z.number().int().min(1).max(5).describe("The number of conversational turns."),
+});
+export type ConversationInput = z.infer<typeof ConversationInputSchema>;
+
+export const ConversationOutputSchema = z.object({
+  conversation: z.array(
+    z.object({
+      agent: z.enum(["Creative", "Pragmatist"]),
+      text: z.string(),
+    })
+  ).describe("The full conversation history between the two agents."),
+});
+export type ConversationOutput = z.infer<typeof ConversationOutputSchema>;
+
+
+// Schema for src/ai/flows/story-creator.ts
+export const StoryCreatorInputSchema = z.object({
+  prompt: z.string().min(10, "Prompt must be at least 10 characters long.").describe("The user's prompt for the story."),
+});
+export type StoryCreatorInput = z.infer<typeof StoryCreatorInputSchema>;
+
+export const StoryCreatorOutputSchema = z.object({
+  story: z.string().describe("The generated short story."),
+  imageUrl: z.string().url().describe("The URL of the generated cover image."),
+});
+export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
+
+// Schema for src/ai/flows/readme-qna.ts
+export const ReadmeQnaInputSchema = z.object({
+  readmeContent: z.string().describe("The full content of the README.md file."),
+  question: z.string().min(5, "Question must be at least 5 characters.").describe("The user's question about the README."),
+});
+export type ReadmeQnaInput = z.infer<typeof ReadmeQnaInputSchema>;
+
+export const ReadmeQnaOutputSchema = z.object({
+  answer: z.string().describe("The AI-generated answer to the user's question."),
+});
+export type ReadmeQnaOutput = z.infer<typeof ReadmeQnaOutputSchema>;

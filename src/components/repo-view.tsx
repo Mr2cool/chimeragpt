@@ -18,15 +18,12 @@ import { RepoAnalysis } from './repo-analysis';
 import { FrameworkDesigner } from './framework-designer';
 import { WebAgent } from './web-agent';
 import { VideoGenerator } from './video-generator';
-import { StoryCreator } from './story-creator';
-import { ConversationStarter } from './conversation-starter';
-import { AppIdeation } from './app-ideation';
-import { DependencyList } from './dependency-list';
-import { Star, GitFork, Video, Bot, MessageSquare, WandSparkles } from 'lucide-react';
+import { Star, GitFork, Video } from 'lucide-react';
 import { Button } from './ui/button';
 import { GithubIcon, Logo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { getFilePaths } from '@/lib/tree';
+import { DependencyList } from './dependency-list';
 
 interface RepoViewProps {
   repo: GitHubRepo;
@@ -98,20 +95,8 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                         <TabsList className="p-0 m-4 bg-transparent gap-4">
                             <TabsTrigger value="readme" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">README</TabsTrigger>
                             <TabsTrigger value="review" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Review</TabsTrigger>
-                            <TabsTrigger value="ideation" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
-                                <WandSparkles className="w-4 h-4 mr-2"/>
-                                Ideation
-                            </TabsTrigger>
                             <TabsTrigger value="designer" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Designer</TabsTrigger>
                             <TabsTrigger value="web-agent" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Web Agent</TabsTrigger>
-                             <TabsTrigger value="conversations" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
-                                <MessageSquare className="w-4 h-4 mr-2"/>
-                                Conversations
-                            </TabsTrigger>
-                            <TabsTrigger value="story-creator" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
-                                <Bot className="w-4 h-4 mr-2"/>
-                                Story Creator
-                            </TabsTrigger>
                              <TabsTrigger value="video" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
                                 <Video className="w-4 h-4 mr-2"/>
                                 Video
@@ -128,9 +113,6 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                     <TabsContent value="review" className="mt-0">
                         <RepoAnalysis filePaths={filePaths} repoDescription={repo.description || ''} />
                     </TabsContent>
-                    <TabsContent value="ideation" className="mt-0">
-                        <AppIdeation repo={{name: repo.name, description: repo.description || '', filePaths}} />
-                    </TabsContent>
                     <TabsContent value="designer" className="mt-0">
                         <FrameworkDesigner />
                     </TabsContent>
@@ -139,12 +121,6 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                     </TabsContent>
                      <TabsContent value="video" className="mt-0">
                         <VideoGenerator />
-                    </TabsContent>
-                     <TabsContent value="story-creator" className="mt-0">
-                        <StoryCreator />
-                    </TabsContent>
-                    <TabsContent value="conversations" className="mt-0">
-                        <ConversationStarter />
                     </TabsContent>
                 </Tabs>
             </main>
