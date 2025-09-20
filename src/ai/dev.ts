@@ -8,3 +8,4 @@ import '@/ai/flows/web-agent.ts';
 import '@/ai/flows/video-generation.ts';
 import '@/ai/flows/readme-qna.ts';
 import '@/ai/flows/story-creator.ts';
+import '@/ai/flows/conversation-flow.ts';

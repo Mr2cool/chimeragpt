@@ -95,3 +95,18 @@ export const StoryCreatorOutputSchema = z.object({
     imageUrl: z.string().describe('The data URI of the generated cover image.'),
 });
 export type StoryCreatorOutput = z.infer<typeof StoryCreatorOutputSchema>;
+
+
+// Schema for src/ai/flows/conversation-flow.ts
+export const ConversationInputSchema = z.object({
+  topic: z.string().min(5).describe('The topic for the AI agents to discuss.'),
+});
+export type ConversationInput = z.infer<typeof ConversationInputSchema>;
+
+export const ConversationOutputSchema = z.object({
+  conversation: z.array(z.object({
+    agent: z.enum(['Pragmatist', 'Creative']),
+    text: z.string(),
+  })).describe('The structured conversation between the two agents.'),
+});
+export type ConversationOutput = z.infer<typeof ConversationOutputSchema>;

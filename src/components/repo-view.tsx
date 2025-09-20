@@ -19,8 +19,9 @@ import { FrameworkDesigner } from './framework-designer';
 import { WebAgent } from './web-agent';
 import { VideoGenerator } from './video-generator';
 import { StoryCreator } from './story-creator';
+import { ConversationStarter } from './conversation-starter';
 import { DependencyList } from './dependency-list';
-import { Star, GitFork, Video, Bot } from 'lucide-react';
+import { Star, GitFork, Video, Bot, MessageSquare } from 'lucide-react';
 import { Button } from './ui/button';
 import { GithubIcon, Logo } from './icons';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -98,13 +99,17 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                             <TabsTrigger value="analysis" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Analysis</TabsTrigger>
                             <TabsTrigger value="designer" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Designer</TabsTrigger>
                             <TabsTrigger value="web-agent" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">Web Agent</TabsTrigger>
-                            <TabsTrigger value="video" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
-                                <Video className="w-4 h-4 mr-2"/>
-                                Video
+                             <TabsTrigger value="conversations" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
+                                <MessageSquare className="w-4 h-4 mr-2"/>
+                                Conversations
                             </TabsTrigger>
                             <TabsTrigger value="story-creator" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
                                 <Bot className="w-4 h-4 mr-2"/>
                                 Story Creator
+                            </TabsTrigger>
+                             <TabsTrigger value="video" className="h-auto rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary">
+                                <Video className="w-4 h-4 mr-2"/>
+                                Video
                             </TabsTrigger>
                         </TabsList>
                     </div>
@@ -129,6 +134,9 @@ export function RepoView({ repo, tree, readme, packageJson }: RepoViewProps) {
                     </TabsContent>
                      <TabsContent value="story-creator" className="mt-0">
                         <StoryCreator />
+                    </TabsContent>
+                    <TabsContent value="conversations" className="mt-0">
+                        <ConversationStarter />
                     </TabsContent>
                 </Tabs>
             </main>
