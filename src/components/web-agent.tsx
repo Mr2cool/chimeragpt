@@ -25,7 +25,7 @@ export function WebAgent() {
     resolver: zodResolver(WebTaskInputSchema),
     defaultValues: {
       url: 'https://en.wikipedia.org/wiki/React_(software)',
-      task: 'Summarize the history of this framework and find out what the latest stable version is.',
+      task: 'Summarize the history of this framework. Then, perform a web search to find out what the latest stable version is and who the original author was.',
       userData: `My name is John Doe, I live at 123 Main St, and I am a software engineer. My manager asked me to research the history of React for a presentation. I need a summary of its key milestones.`
     },
   });
@@ -88,7 +88,7 @@ export function WebAgent() {
                       <Textarea
                         placeholder="e.g., Summarize the main points and find related news articles."
                         {...field}
-                        rows={2}
+                        rows={3}
                       />
                     </FormControl>
                     <FormDescription>
@@ -112,7 +112,7 @@ export function WebAgent() {
                       />
                     </FormControl>
                     <FormDescription>
-                      Provide any background information. It will be filtered for privacy.
+                      Provide any background information. The agent can use this for context, but is designed to be privacy-aware.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -158,7 +158,7 @@ export function WebAgent() {
         <Card>
           <CardHeader>
             <CardTitle className="font-headline text-2xl">Agent Output</CardTitle>
-          </CardHeader>
+          </Header>
           <CardContent>
             <article className="prose dark:prose-invert max-w-none">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{result}</ReactMarkdown>

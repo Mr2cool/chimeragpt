@@ -21,7 +21,9 @@ const webSearchTool = ai.defineTool(
     async (input) => {
         try {
             const searchResults = await searchGoogle(input.query);
-            return JSON.stringify(searchResults.items.map(item => ({ title: item.title, snippet: item.snippet, link: item.link })));
+            // Return only the top 5 results for brevity
+            const topResults = searchResults.items.slice(0, 5);
+            return JSON.stringify(topResults.map(item => ({ title: item.title, snippet: item.snippet, link: item.link })));
         } catch (e) {
             console.error("Search tool failed", e);
             return "Search failed or returned no results.";
@@ -113,6 +115,7 @@ You have access to tools that can help you:
 Analyze the 'Webpage Content'. If it's not sufficient, use 'webSearch' or 'analyzeImage' to gather more information.
 Finally, perform the task and provide the result in a clear, well-structured markdown format.
 When using tools, briefly mention that you are doing so.
+If you need to perform multiple steps, think step-by-step and use the tools iteratively.
 `,
             });
 
