@@ -1,4 +1,4 @@
-export interface GitHubRepo {
+export interface Repository {
   id: number;
   name: string;
   full_name: string;
@@ -6,12 +6,23 @@ export interface GitHubRepo {
   html_url: string;
   stargazers_count: number;
   forks_count: number;
-  open_issues_count: number;
+  watchers_count: number;
+  language: string | null;
+  updated_at: string;
   default_branch: string;
   owner: {
     login: string;
     avatar_url: string;
   };
+}
+
+export interface GitHubRepo extends Repository {}
+
+export interface TreeNode {
+  name: string;
+  path: string;
+  type: 'tree' | 'blob';
+  children?: TreeNode[];
 }
 
 export interface GitHubFile {

@@ -1,133 +1,98 @@
 "use client";
 
 import * as React from 'react';
-import { Folder, FileText, ChevronDown, ChevronRight, Search } from 'lucide-react';
-import { Input } from './ui/input';
-import { ScrollArea } from './ui/scroll-area';
+import { ChevronRight, ChevronDown, File, Folder, FolderOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { TreeNode } from '@/lib/tree';
+import type { TreeNode } from '@/lib/types';
 
 interface DirectoryTreeProps {
   tree: TreeNode[];
+  onFileSelect?: (path: string) => void;
+  selectedFile?: string | null;
 }
 
 interface TreeItemProps {
   node: TreeNode;
-  depth: number;
-  searchQuery: string;
+  level: number;
+  onFileSelect?: (path: string) => void;
+  selectedFile?: string | null;
 }
 
-const TreeItem: React.FC<TreeItemProps> = ({ node, depth, searchQuery }) => {
-  const isFolder = node.type === 'tree';
-  const [isOpen, setIsOpen] = React.useState(depth < 2);
+function TreeItem({ node, level, onFileSelect, selectedFile }: TreeItemProps) {
+  const [isExpanded, setIsExpanded] = React.useState(level < 2);
+  const hasChildren = node.children && node.children.length > 0;
+  const isSelected = selectedFile === node.path;
 
-  const toggleOpen = () => {
-    if (isFolder) {
-      setIsOpen(!isOpen);
+  const handleClick = () => {
+    if (hasChildren) {
+      setIsExpanded(!isExpanded);
+    } else {
+      onFileSelect?.(node.path);
     }
   };
 
-  const highlightMatch = (text: string, query: string) => {
-    if (!query) return text;
-    const parts = text.split(new RegExp(`(${query})`, 'gi'));
-    return (
-      <>
-        {parts.map((part, i) =>
-          part.toLowerCase() === query.toLowerCase() ? (
-            <span key={i} className="bg-primary/30 rounded-sm">{part}</span>
-          ) : (
-            part
-          )
-        )}
-      </>
-    );
-  };
+  const paddingLeft = level * 20;
 
   return (
     <div>
       <div
         className={cn(
-            "flex items-center p-1 rounded-md hover:bg-accent cursor-pointer text-sm",
-            isFolder ? "font-medium" : "text-muted-foreground"
+          "flex items-center py-2 px-3 cursor-pointer transition-all duration-200 hover:bg-[#64B5F6]/10 rounded-md mx-2",
+          isSelected && "bg-[#A5D6A7]/20 text-gray-800 font-medium"
         )}
-        style={{ paddingLeft: `${depth * 1}rem` }}
-        onClick={toggleOpen}
+        style={{ paddingLeft }}
+        onClick={handleClick}
       >
-        {isFolder ? (
-          <div className="flex items-center flex-1 gap-1">
-            {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-            <Folder className="h-4 w-4 text-primary" />
-            <span>{highlightMatch(node.name, searchQuery)}</span>
-          </div>
+        {hasChildren ? (
+          <>
+            {isExpanded ? (
+              <ChevronDown className="w-4 h-4 mr-2 text-[#64B5F6] transition-transform" />
+            ) : (
+              <ChevronRight className="w-4 h-4 mr-2 text-[#64B5F6] transition-transform" />
+            )}
+            {isExpanded ? (
+              <FolderOpen className="w-4 h-4 mr-2 text-[#64B5F6]" />
+            ) : (
+              <Folder className="w-4 h-4 mr-2 text-[#64B5F6]" />
+            )}
+          </>
         ) : (
-          <div className="flex items-center flex-1 gap-1 ml-4">
-            <FileText className="h-4 w-4" />
-            <span>{highlightMatch(node.name, searchQuery)}</span>
-          </div>
+          <>
+            <div className="w-4 h-4 mr-2" />
+            <File className="w-4 h-4 mr-2 text-gray-500" />
+          </>
         )}
+        <span className="font-['Inter'] text-sm truncate text-gray-700">{node.name}</span>
       </div>
-      {isFolder && isOpen && (
-        <div>
-          {node.children.map((child) => (
-            <TreeItem key={child.path} node={child} depth={depth + 1} searchQuery={searchQuery} />
+      {hasChildren && isExpanded && (
+        <div className="transition-all duration-200">
+          {node.children?.map((child) => (
+            <TreeItem
+              key={child.path}
+              node={child}
+              level={level + 1}
+              onFileSelect={onFileSelect}
+              selectedFile={selectedFile}
+            />
           ))}
         </div>
       )}
     </div>
   );
-};
+}
 
-const filterTree = (nodes: TreeNode[], query: string): TreeNode[] => {
-    if (!query) return nodes;
-
-    const lowerCaseQuery = query.toLowerCase();
-
-    return nodes.reduce((acc: TreeNode[], node) => {
-        if (node.name.toLowerCase().includes(lowerCaseQuery)) {
-            acc.push(node);
-            return acc;
-        }
-
-        if (node.type === 'tree') {
-            const filteredChildren = filterTree(node.children, query);
-            if (filteredChildren.length > 0) {
-                acc.push({ ...node, children: filteredChildren });
-            }
-        }
-        return acc;
-    }, []);
-};
-
-
-export const DirectoryTree: React.FC<DirectoryTreeProps> = ({ tree }) => {
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const [filteredTree, setFilteredTree] = React.useState(tree);
-
-  React.useEffect(() => {
-    setFilteredTree(filterTree(tree, searchQuery));
-  }, [searchQuery, tree]);
-
+export function DirectoryTree({ tree, onFileSelect, selectedFile }: DirectoryTreeProps) {
   return (
-    <div className="flex flex-col h-full">
-      <div className="relative mb-2">
-        <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input
-          type="text"
-          placeholder="Search files..."
-          className="pl-8 h-9"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+    <div className="max-h-96 overflow-y-auto">
+      {tree.map((node) => (
+        <TreeItem
+          key={node.path}
+          node={node}
+          level={0}
+          onFileSelect={onFileSelect}
+          selectedFile={selectedFile}
         />
-      </div>
-      <ScrollArea className="flex-1">
-        <div className="space-y-1">
-            {filteredTree.length > 0 ? (
-                filteredTree.map((node) => <TreeItem key={node.path} node={node} depth={0} searchQuery={searchQuery} />)
-            ) : (
-                <p className="text-sm text-muted-foreground p-2">No files found.</p>
-            )}
-        </div>
-      </ScrollArea>
+      ))}
     </div>
   );
-};
+}

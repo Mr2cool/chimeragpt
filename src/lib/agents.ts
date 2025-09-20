@@ -146,7 +146,7 @@ export class AutonomousAgent extends AIAgent {
 export class ManagerAgent extends AutonomousAgent {
     public team: AIAgent[];
 
-    constructor(name: string, role: string, team: AIAIAgent[], maxSteps: number = 10) {
+    constructor(name: string, role: string, team: AIAgent[], maxSteps: number = 10) {
         // The manager's "actions" are its team members.
         const teamAsActions = team.map(agent => new (class extends BaseAction {
             name = agent.name;

@@ -46,7 +46,7 @@ const imageAnalysisTool = ai.defineTool(
             if (!dataUri) return "Failed to fetch image.";
 
             const { text } = await ai.generate({
-                model: googleAI.model('gemini-pro-vision'),
+                model: googleAI.model('gemini-1.5-flash-latest'),
                 prompt: [{
                     media: { url: dataUri }
                 }, {
@@ -107,11 +107,9 @@ You have access to tools that can help you:
 {{{pageContent}}}
 ---
 
-{{#if imageUrls.length}}
+{{#if imageUrls}}
 **Images found on page (up to 3):**
-{{#each imageUrls}}
-- {{{this}}}
-{{/each}}
+{{{imageUrls}}}
 {{/if}}
 
 Analyze the 'Webpage Content'. If it's not sufficient, use 'webSearch' or 'analyzeImage' to gather more information.
@@ -125,7 +123,7 @@ If you need to perform multiple steps, think step-by-step and use the tools iter
                 url: input.url,
                 task: input.task,
                 pageContent: sanitizedContent,
-                imageUrls: imageUrls
+                imageUrls: imageUrls.map(url => `- ${url}`).join('\n')
             });
             return output!;
         }

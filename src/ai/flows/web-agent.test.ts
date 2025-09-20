@@ -39,7 +39,7 @@ vi.mock('@/ai/genkit', () => {
 
 // Mock the web-fetcher and search modules
 vi.mock('@/lib/web-fetcher', async (importOriginal) => {
-    const actual = await importOriginal();
+    const actual = await importOriginal<typeof import('@/lib/web-fetcher')>();
     return {
         ...actual,
         fetchUrlContent: vi.fn().mockResolvedValue('<html><body><h1>Test Page</h1></body></html>'),

@@ -158,7 +158,7 @@ export function WebAgent() {
         <Card>
           <CardHeader>
             <CardTitle className="font-headline text-2xl">Agent Output</CardTitle>
-          </Header>
+          </CardHeader>
           <CardContent>
             <article className="prose dark:prose-invert max-w-none">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{result}</ReactMarkdown>
