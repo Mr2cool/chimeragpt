@@ -1,8 +1,8 @@
 'use server';
 /**
- * @fileOverview A flow to analyze a GitHub repository based on its file structure.
+ * @fileOverview A flow to analyze a GitHub repository for potential bugs, vulnerabilities, and limitations.
  *
- * - analyzeRepo - A function that analyzes the repository files and provides a summary.
+ * - analyzeRepo - A function that analyzes the repository files and provides a detailed audit.
  */
 
 import {ai} from '@/ai/genkit';
@@ -20,7 +20,7 @@ export async function analyzeRepo(input: RepoAnalysisInput): Promise<RepoAnalysi
         name: 'repoAnalysisPrompt',
         input: {schema: RepoAnalysisInputSchema},
         output: {schema: RepoAnalysisOutputSchema},
-        prompt: `You are an expert software architect. Your task is to analyze a GitHub repository based on its file paths and description.
+        prompt: `You are an expert Code Auditor AI. Your task is to analyze a GitHub repository based on its file paths, dependencies, and description to identify potential issues.
 
 Repository Description: {{{repoDescription}}}
 
@@ -29,12 +29,15 @@ File Paths:
 - {{{this}}}
 {{/each}}
 
-Based on the file paths and description, provide the following analysis:
-1.  **Technologies**: Identify the programming languages, frameworks, and significant libraries being used. Look at file extensions (.js, .ts, .py, .go), config files (package.json, pyproject.toml), and common directory names.
-2.  **Summary**: Briefly summarize the project's purpose and architecture. What does it seem to do? Is it a web app, a library, a data science project?
-3.  **Framework Suggestions**: From the following list of AI agent frameworks, suggest up to 3 that could be relevant to this project and explain why. The frameworks are: nanobot, CAMEL, Eigent, LiteLLM, Dolt, Mem0, A2A, AP2, CrewAI, LangGraph, LangFlow.
+Based on the file paths and description, provide the following analysis as a senior software architect conducting a code review. Be critical and thorough.
 
-Provide a concise and insightful analysis suitable for a technical audience.`,
+1.  **Potential Bugs & Issues**: Identify potential bugs. For example, look for signs of missing error handling (e.g., no 'error.tsx' files in a Next.js app), potential race conditions in client/server interactions, or complex state management that could lead to bugs.
+2.  **Security Vulnerabilities**: Identify potential security risks. Consider things like exposure of environment variables, lack of input validation in forms/APIs, potential for XSS if markdown is used without sanitization, or outdated/insecure dependencies.
+3.  **Architectural Limitations**: Identify limitations in the current architecture. This could include scalability bottlenecks (e.g., all logic in a single server file), lack of modularity, or tight coupling between components that would make future maintenance difficult.
+4.  **Technologies**: Identify the programming languages, frameworks, and significant libraries being used.
+5.  **Summary**: Briefly summarize the project's purpose and architecture.
+
+Provide a concise and insightful analysis suitable for a technical audience. For each issue, provide a brief explanation of the potential risk.`,
       });
       const {output} = await prompt(input);
       return output!;

@@ -24,13 +24,17 @@ export const RepoAnalysisInputSchema = z.object({
 });
 export type RepoAnalysisInput = z.infer<typeof RepoAnalysisInputSchema>;
 
+const IssueSchema = z.object({
+    name: z.string().describe('A short, descriptive name for the issue.'),
+    reason: z.string().describe('A detailed explanation of the issue and its potential impact.'),
+});
+
 export const RepoAnalysisOutputSchema = z.object({
   technologies: z.array(z.string()).describe('A list of languages, frameworks, and key libraries identified in the repository.'),
   summary: z.string().describe('A summary of the project\'s likely purpose and architecture based on its file structure.'),
-  frameworkSuggestions: z.array(z.object({
-    name: z.string().describe('The name of the suggested AI agent framework.'),
-    reason: z.string().describe('The reason why this framework is suggested for the repository.'),
-  })).describe('A list of suggested AI agent frameworks that might be relevant for this repository.'),
+  potentialBugs: z.array(IssueSchema).describe('A list of potential bugs or issues found in the code.'),
+  securityVulnerabilities: z.array(IssueSchema).describe('A list of potential security vulnerabilities.'),
+  architecturalLimitations: z.array(IssueSchema).describe('A list of architectural limitations or scalability concerns.'),
 });
 export type RepoAnalysisOutput = z.infer<typeof RepoAnalysisOutputSchema>;
 
