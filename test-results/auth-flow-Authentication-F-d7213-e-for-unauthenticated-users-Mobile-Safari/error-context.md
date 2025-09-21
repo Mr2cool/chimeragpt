@@ -1,0 +1,132 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - text: "screen: _"
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - generic [ref=e7]:
+            - img [ref=e8]
+            - heading "ChimeraGPT" [level=1] [ref=e18]
+          - generic [ref=e19]: v2.0
+        - generic [ref=e20]:
+          - button "Settings" [ref=e21] [cursor=pointer]:
+            - img
+            - text: Settings
+          - button "New Analysis" [ref=e22] [cursor=pointer]:
+            - img
+            - text: New Analysis
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - heading "Welcome to your AI-Powered Development Hub" [level=2] [ref=e25]
+        - paragraph [ref=e26]: Orchestrate intelligent agents, analyze repositories, and gain deep insights into your codebase.
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]: Total Repositories
+            - img [ref=e31]
+          - generic [ref=e35]:
+            - generic [ref=e36]: "0"
+            - paragraph [ref=e37]: Connected and analyzed
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]: Active Analyses
+            - img [ref=e41]
+          - generic [ref=e43]:
+            - generic [ref=e44]: "0"
+            - paragraph [ref=e45]: Currently running
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: Insights Generated
+            - img [ref=e49]
+          - generic [ref=e51]:
+            - generic [ref=e52]: "0"
+            - paragraph [ref=e53]: AI-powered recommendations
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]: Active Agents
+            - img [ref=e57]
+          - generic [ref=e60]:
+            - generic [ref=e61]: 0/12
+            - paragraph [ref=e62]: Active/Total agents
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e65]: Completed Tasks
+            - img [ref=e66]
+          - generic [ref=e69]:
+            - generic [ref=e70]: "0"
+            - paragraph [ref=e71]: Successfully finished
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: Pending Tasks
+            - img [ref=e75]
+          - generic [ref=e78]:
+            - generic [ref=e79]: "0"
+            - paragraph [ref=e80]: Waiting to execute
+      - generic [ref=e82]:
+        - tablist [ref=e83]:
+          - tab "Overview" [selected] [ref=e84] [cursor=pointer]
+          - tab "Agent Status" [ref=e85] [cursor=pointer]
+          - tab "Recent Insights" [ref=e86] [cursor=pointer]
+          - tab "Analytics" [ref=e87] [cursor=pointer]
+          - tab "Marketplace" [ref=e88] [cursor=pointer]
+          - tab "Management" [ref=e89] [cursor=pointer]
+          - tab "Enterprise" [ref=e90] [cursor=pointer]
+          - tab "Plugins" [ref=e91] [cursor=pointer]
+          - tab "Analytics" [ref=e92] [cursor=pointer]
+          - tab "Testing" [ref=e93] [cursor=pointer]
+        - tabpanel "Overview" [ref=e94]:
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - generic [ref=e98]:
+                  - img [ref=e99]
+                  - generic [ref=e101]: Recent Activity
+                - generic [ref=e102]: Latest updates from your AI agents and analyses
+              - generic [ref=e103]:
+                - generic [ref=e104]:
+                  - img [ref=e106]
+                  - generic [ref=e108]:
+                    - paragraph [ref=e109]: Documentation Generator undefined
+                    - paragraph [ref=e110]: NaN day ago
+                - generic [ref=e112]:
+                  - img [ref=e114]
+                  - generic [ref=e116]:
+                    - paragraph [ref=e117]: Security Analyzer undefined
+                    - paragraph [ref=e118]: NaN day ago
+                - generic [ref=e120]:
+                  - img [ref=e122]
+                  - generic [ref=e124]:
+                    - paragraph [ref=e125]: Performance Optimizer undefined
+                    - paragraph [ref=e126]: NaN day ago
+            - generic [ref=e128]:
+              - generic [ref=e129]:
+                - generic [ref=e130]:
+                  - img [ref=e131]
+                  - generic [ref=e133]: Quick Actions
+                - generic [ref=e134]: Start new analyses and workflows
+              - generic [ref=e135]:
+                - link "Manage Agents" [ref=e136]:
+                  - /url: /agents
+                  - img
+                  - text: Manage Agents
+                - link "Workflows" [ref=e137]:
+                  - /url: /workflows
+                  - img
+                  - text: Workflows
+                - link "Marketplace" [ref=e138]:
+                  - /url: /marketplace
+                  - img
+                  - text: Marketplace
+                - link "Analytics" [ref=e139]:
+                  - /url: /analytics
+                  - img
+                  - text: Analytics
+  - region "Notifications (F8)":
+    - list
+  - alert [ref=e140]
+  - button "Open Next.js Dev Tools" [ref=e146] [cursor=pointer]:
+    - img [ref=e147] [cursor=pointer]
+```

@@ -23,8 +23,8 @@ vi.mock('@/ai/genkit', () => {
   };
 
   const prompt = vi.fn().mockResolvedValue({
-    output: () => mockOutput,
-    text: () => JSON.stringify(mockOutput),
+    output: mockOutput,
+    text: JSON.stringify(mockOutput),
   });
   
   const definePrompt = vi.fn().mockReturnValue(prompt);

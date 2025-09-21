@@ -1,0 +1,2102 @@
+<testsuites id="" name="" tests="511" failures="0" skipped="511" errors="0" time="0.3114739999999999">
+<testsuite name="agent-workflow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="chromium" tests="17" failures="0" skipped="17" time="0" errors="0">
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create a new agent with basic configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create agent from marketplace template" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should validate agent creation form" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should edit agent configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should start and stop agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should view agent details and logs" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should clone agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should delete agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should assign and execute task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should handle task execution errors" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should cancel running task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should search agents by name" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by type" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by status" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle network errors during agent creation" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle empty agents list" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle agent operation failures" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="chromium" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="Authentication Flow › should display login page for unauthenticated users" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show validation errors for invalid login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle login with invalid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should successfully login with valid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle signup flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should validate password confirmation in signup" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle logout functionality" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle password reset flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should persist authentication across page reloads" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle session expiration" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle OAuth login (if implemented)" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show loading states during authentication" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle network errors gracefully" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should redirect to intended page after login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="chromium" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display dashboard with key metrics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display recent activity" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display agents list" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should navigate between dashboard tabs" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should create a new agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should edit an existing agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should delete an agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should start and stop agents" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should filter agents by type" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should search agents by name" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should create and assign a task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should view task details and results" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should cancel a pending task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should browse available agent templates" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should install agent from marketplace" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should filter marketplace by category" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should display agent performance analytics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should filter analytics by date range" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle network errors gracefully" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle empty states properly" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="marketplace-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="chromium" tests="22" failures="0" skipped="22" time="0" errors="0">
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should display marketplace with agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should search for specific agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should filter templates by category" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should sort templates by different criteria" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template details" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should preview template configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template reviews and ratings" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with default configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with custom configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should handle installation errors" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should validate installation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should add template to favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should remove template from favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should share template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should report template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should create and publish new template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should validate template creation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view template usage statistics" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view marketplace trends" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle network errors in marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle empty marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle search with no results" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="agent-workflow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="firefox" tests="17" failures="0" skipped="17" time="0" errors="0">
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create a new agent with basic configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create agent from marketplace template" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should validate agent creation form" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should edit agent configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should start and stop agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should view agent details and logs" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should clone agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should delete agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should assign and execute task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should handle task execution errors" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should cancel running task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should search agents by name" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by type" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by status" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle network errors during agent creation" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle empty agents list" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle agent operation failures" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="firefox" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="Authentication Flow › should display login page for unauthenticated users" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show validation errors for invalid login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle login with invalid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should successfully login with valid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle signup flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should validate password confirmation in signup" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle logout functionality" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle password reset flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should persist authentication across page reloads" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle session expiration" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle OAuth login (if implemented)" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show loading states during authentication" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle network errors gracefully" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should redirect to intended page after login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="firefox" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display dashboard with key metrics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display recent activity" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display agents list" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should navigate between dashboard tabs" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should create a new agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should edit an existing agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should delete an agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should start and stop agents" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should filter agents by type" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should search agents by name" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should create and assign a task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should view task details and results" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should cancel a pending task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should browse available agent templates" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should install agent from marketplace" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should filter marketplace by category" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should display agent performance analytics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should filter analytics by date range" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle network errors gracefully" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle empty states properly" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="marketplace-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="firefox" tests="22" failures="0" skipped="22" time="0" errors="0">
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should display marketplace with agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should search for specific agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should filter templates by category" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should sort templates by different criteria" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template details" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should preview template configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template reviews and ratings" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with default configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with custom configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should handle installation errors" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should validate installation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should add template to favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should remove template from favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should share template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should report template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should create and publish new template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should validate template creation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view template usage statistics" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view marketplace trends" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle network errors in marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle empty marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle search with no results" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="agent-workflow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="webkit" tests="17" failures="0" skipped="17" time="0" errors="0">
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create a new agent with basic configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create agent from marketplace template" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should validate agent creation form" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should edit agent configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should start and stop agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should view agent details and logs" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should clone agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should delete agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should assign and execute task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should handle task execution errors" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should cancel running task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should search agents by name" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by type" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by status" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle network errors during agent creation" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle empty agents list" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle agent operation failures" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="webkit" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="Authentication Flow › should display login page for unauthenticated users" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show validation errors for invalid login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle login with invalid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should successfully login with valid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle signup flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should validate password confirmation in signup" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle logout functionality" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle password reset flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should persist authentication across page reloads" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle session expiration" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle OAuth login (if implemented)" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show loading states during authentication" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle network errors gracefully" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should redirect to intended page after login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="webkit" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display dashboard with key metrics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display recent activity" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display agents list" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should navigate between dashboard tabs" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should create a new agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should edit an existing agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should delete an agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should start and stop agents" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should filter agents by type" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should search agents by name" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should create and assign a task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should view task details and results" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should cancel a pending task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should browse available agent templates" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should install agent from marketplace" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should filter marketplace by category" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should display agent performance analytics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should filter analytics by date range" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle network errors gracefully" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle empty states properly" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="marketplace-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="webkit" tests="22" failures="0" skipped="22" time="0" errors="0">
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should display marketplace with agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should search for specific agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should filter templates by category" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should sort templates by different criteria" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template details" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should preview template configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template reviews and ratings" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with default configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with custom configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should handle installation errors" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should validate installation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should add template to favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should remove template from favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should share template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should report template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should create and publish new template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should validate template creation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view template usage statistics" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view marketplace trends" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle network errors in marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle empty marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle search with no results" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="agent-workflow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Mobile Chrome" tests="17" failures="0" skipped="17" time="0" errors="0">
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create a new agent with basic configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create agent from marketplace template" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should validate agent creation form" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should edit agent configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should start and stop agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should view agent details and logs" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should clone agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should delete agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should assign and execute task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should handle task execution errors" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should cancel running task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should search agents by name" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by type" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by status" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle network errors during agent creation" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle empty agents list" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle agent operation failures" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Mobile Chrome" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="Authentication Flow › should display login page for unauthenticated users" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show validation errors for invalid login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle login with invalid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should successfully login with valid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle signup flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should validate password confirmation in signup" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle logout functionality" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle password reset flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should persist authentication across page reloads" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle session expiration" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle OAuth login (if implemented)" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show loading states during authentication" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle network errors gracefully" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should redirect to intended page after login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Mobile Chrome" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display dashboard with key metrics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display recent activity" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display agents list" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should navigate between dashboard tabs" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should create a new agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should edit an existing agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should delete an agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should start and stop agents" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should filter agents by type" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should search agents by name" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should create and assign a task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should view task details and results" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should cancel a pending task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should browse available agent templates" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should install agent from marketplace" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should filter marketplace by category" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should display agent performance analytics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should filter analytics by date range" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle network errors gracefully" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle empty states properly" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="marketplace-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Mobile Chrome" tests="22" failures="0" skipped="22" time="0" errors="0">
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should display marketplace with agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should search for specific agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should filter templates by category" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should sort templates by different criteria" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template details" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should preview template configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template reviews and ratings" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with default configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with custom configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should handle installation errors" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should validate installation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should add template to favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should remove template from favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should share template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should report template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should create and publish new template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should validate template creation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view template usage statistics" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view marketplace trends" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle network errors in marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle empty marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle search with no results" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="agent-workflow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Mobile Safari" tests="17" failures="0" skipped="17" time="0" errors="0">
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create a new agent with basic configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create agent from marketplace template" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should validate agent creation form" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should edit agent configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should start and stop agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should view agent details and logs" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should clone agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should delete agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should assign and execute task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should handle task execution errors" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should cancel running task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should search agents by name" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by type" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by status" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle network errors during agent creation" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle empty agents list" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle agent operation failures" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Mobile Safari" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="Authentication Flow › should display login page for unauthenticated users" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show validation errors for invalid login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle login with invalid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should successfully login with valid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle signup flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should validate password confirmation in signup" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle logout functionality" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle password reset flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should persist authentication across page reloads" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle session expiration" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle OAuth login (if implemented)" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show loading states during authentication" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle network errors gracefully" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should redirect to intended page after login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Mobile Safari" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display dashboard with key metrics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display recent activity" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display agents list" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should navigate between dashboard tabs" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should create a new agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should edit an existing agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should delete an agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should start and stop agents" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should filter agents by type" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should search agents by name" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should create and assign a task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should view task details and results" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should cancel a pending task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should browse available agent templates" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should install agent from marketplace" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should filter marketplace by category" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should display agent performance analytics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should filter analytics by date range" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle network errors gracefully" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle empty states properly" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="marketplace-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Mobile Safari" tests="22" failures="0" skipped="22" time="0" errors="0">
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should display marketplace with agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should search for specific agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should filter templates by category" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should sort templates by different criteria" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template details" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should preview template configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template reviews and ratings" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with default configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with custom configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should handle installation errors" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should validate installation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should add template to favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should remove template from favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should share template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should report template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should create and publish new template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should validate template creation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view template usage statistics" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view marketplace trends" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle network errors in marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle empty marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle search with no results" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="agent-workflow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Microsoft Edge" tests="17" failures="0" skipped="17" time="0" errors="0">
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create a new agent with basic configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create agent from marketplace template" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should validate agent creation form" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should edit agent configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should start and stop agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should view agent details and logs" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should clone agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should delete agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should assign and execute task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should handle task execution errors" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should cancel running task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should search agents by name" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by type" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by status" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle network errors during agent creation" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle empty agents list" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle agent operation failures" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Microsoft Edge" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="Authentication Flow › should display login page for unauthenticated users" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show validation errors for invalid login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle login with invalid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should successfully login with valid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle signup flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should validate password confirmation in signup" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle logout functionality" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle password reset flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should persist authentication across page reloads" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle session expiration" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle OAuth login (if implemented)" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show loading states during authentication" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle network errors gracefully" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should redirect to intended page after login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Microsoft Edge" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display dashboard with key metrics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display recent activity" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display agents list" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should navigate between dashboard tabs" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should create a new agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should edit an existing agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should delete an agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should start and stop agents" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should filter agents by type" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should search agents by name" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should create and assign a task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should view task details and results" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should cancel a pending task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should browse available agent templates" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should install agent from marketplace" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should filter marketplace by category" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should display agent performance analytics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should filter analytics by date range" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle network errors gracefully" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle empty states properly" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="marketplace-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Microsoft Edge" tests="22" failures="0" skipped="22" time="0" errors="0">
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should display marketplace with agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should search for specific agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should filter templates by category" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should sort templates by different criteria" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template details" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should preview template configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template reviews and ratings" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with default configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with custom configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should handle installation errors" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should validate installation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should add template to favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should remove template from favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should share template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should report template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should create and publish new template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should validate template creation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view template usage statistics" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view marketplace trends" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle network errors in marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle empty marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle search with no results" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="agent-workflow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Google Chrome" tests="17" failures="0" skipped="17" time="0" errors="0">
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create a new agent with basic configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should create agent from marketplace template" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Creation Flow › should validate agent creation form" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should edit agent configuration" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should start and stop agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should view agent details and logs" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should clone agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Management › should delete agent" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should assign and execute task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should handle task execution errors" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Task Execution › should cancel running task" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should search agents by name" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by type" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Agent Filtering and Search › should filter agents by status" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle network errors during agent creation" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle empty agents list" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Creation and Management Workflow › Error Handling and Edge Cases › should handle agent operation failures" classname="agent-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="auth-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Google Chrome" tests="14" failures="0" skipped="14" time="0" errors="0">
+<testcase name="Authentication Flow › should display login page for unauthenticated users" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show validation errors for invalid login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle login with invalid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should successfully login with valid credentials" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle signup flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should validate password confirmation in signup" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle logout functionality" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle password reset flow" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should persist authentication across page reloads" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle session expiration" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle OAuth login (if implemented)" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should show loading states during authentication" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should handle network errors gracefully" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Authentication Flow › should redirect to intended page after login" classname="auth-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="dashboard-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Google Chrome" tests="20" failures="0" skipped="20" time="0" errors="0">
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display dashboard with key metrics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display recent activity" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should display agents list" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Dashboard Overview › should navigate between dashboard tabs" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should create a new agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should edit an existing agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should delete an agent" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should start and stop agents" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should filter agents by type" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Management › should search agents by name" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should create and assign a task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should view task details and results" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Task Management › should cancel a pending task" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should browse available agent templates" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should install agent from marketplace" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Agent Marketplace › should filter marketplace by category" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should display agent performance analytics" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Analytics and Monitoring › should filter analytics by date range" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle network errors gracefully" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dashboard and Agent Management Flow › Error Handling › should handle empty states properly" classname="dashboard-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="marketplace-flow.spec.ts" timestamp="2025-09-21T07:04:49.916Z" hostname="Google Chrome" tests="22" failures="0" skipped="22" time="0" errors="0">
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should display marketplace with agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should search for specific agent templates" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should filter templates by category" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Browse and Search › should sort templates by different criteria" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template details" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should preview template configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Details and Preview › should view template reviews and ratings" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with default configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should install agent with custom configuration" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should handle installation errors" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Agent Installation › should validate installation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should add template to favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should remove template from favorites" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should share template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Management › should report template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should create and publish new template" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Template Creation and Publishing › should validate template creation form" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view template usage statistics" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Marketplace Analytics › should view marketplace trends" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle network errors in marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle empty marketplace" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Agent Marketplace Flow › Error Handling and Edge Cases › should handle search with no results" classname="marketplace-flow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

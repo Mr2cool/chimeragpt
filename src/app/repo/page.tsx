@@ -1,6 +1,6 @@
 'use client';
 import { RepoInputForm } from '@/components/repo-input-form';
-import { RepoView } from '@/components/repo-view';
+import { EnhancedRepoExplorer } from '@/components/enhanced-repo-explorer';
 import { useSearchParams } from 'next/navigation';
 import useSWR from 'swr';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -92,7 +92,7 @@ export default function RepoPage() {
 
   if (data) {
     const { repo, rawTree, readme, packageJson } = data;
-    return <RepoView repo={repo} rawTree={rawTree} readme={readme || ''} packageJson={packageJson} />;
+    return <EnhancedRepoExplorer repo={repo} rawTree={rawTree} readme={readme || ''} packageJson={packageJson} />;
   }
 
   return (
